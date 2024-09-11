@@ -46,7 +46,12 @@ nav {
 
 button {
   background-color: aqua;
-  border: none;
+  border: none; 
+}
 
-  
+.hero-image {
+  background-image: url(./Images/bg.image.jpg);
+  height: 100vh;
+  width: 100vw;
+  background-size: cover;
 }
