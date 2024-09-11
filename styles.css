@@ -1,25 +1,20 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  text-decoration: none;
 }
 
 nav {
   background: fixed;
-  background-color: rgba(33, 210, 216, 0.863);
+  background-color: white;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
   top: 0%;
   left: 0%;
-  z-index: 50;
   height: 50px;
   padding: 50px;
-}
-
-.brand-name {
-  color: green;
 }
 
 .logo img{
@@ -28,14 +23,17 @@ nav {
 }
 
 .nav-links {
+  display: flex;
+  flex-direction: row;
   list-style-type: none;
-  gap: 40%;
+  width: 40%;
   font-size: 18;
-  color: black;
+  color: white;
+  justify-content: space-evenly;
 }
 
 .nav-links li a {
-  color: black;
+  color: white;
   text-decoration: none;
   font-size: 18px;
 }
@@ -45,13 +43,47 @@ nav {
 }
 
 button {
-  background-color: aqua;
+  background-color: rgb(248, 10, 10);
   border: none; 
+  padding: 10px 20px;
+  border-radius: 20px;
+  color: white;
 }
 
-.hero-image {
-  background-image: url(./Images/bg.image.jpg);
+#hero-button {
+  color: white;
+  border-color: white;
+  border-radius: 20px;
+  border: none;
+
+  
+}
+
+.hero {
+  background-image: url(./Images/Esbg.jpg);
   height: 100vh;
   width: 100vw;
   background-size: cover;
+  background-attachment: fixed;
+}
+
+#hero-title {
+    color: white;
+    font-size: 3rem;
+}
+
+#hero-subtext {
+  color: white;
+  font-size: 2rem;
+}
+
+.overlay {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: rgba(0, 0, 0, 0.4);
 }
