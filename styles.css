@@ -1,3 +1,52 @@
-h1 {
-    color: aqua;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+nav {
+  background: fixed;
+  background-color: rgba(33, 210, 216, 0.863);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  top: 0%;
+  left: 0%;
+  z-index: 50;
+  height: 50px;
+  padding: 50px;
+}
+
+.brand-name {
+  color: green;
+}
+
+.logo img{
+  height: 200px;
+  width: auto;
+}
+
+.nav-links {
+  list-style-type: none;
+  gap: 40%;
+  font-size: 18;
+  color: black;
+}
+
+.nav-links li a {
+  color: black;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.nav-links li a:hover {
+  color: #f0a500;
+}
+
+button {
+  background-color: aqua;
+  border: none;
+
+  
 }
