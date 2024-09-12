@@ -1,21 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 * {
   margin: 0;
   padding: 0;
   text-decoration: none;
+  font-family: "Ubuntu", sans-serif;
+
 }
 
+body {
+  overflow-x: hidden;
+}
 nav {
-  background: fixed;
+  position: fixed;
   background-color: white;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  top: 0%;
-  left: 0%;
-  height: 50px;
-  padding: 50px;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 30px;
+  padding: 40px;
+  z-index: 50px;
 }
+
+/* .glass {
+background: rgba(255, 255, 255, 0.2);
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(5px);
+-webkit-backdrop-filter: blur(5px);
+border: 1px solid rgba(255, 255, 255, 0.3);
+} */
 
 .logo img {
   height: 200px;
@@ -25,22 +41,17 @@ nav {
 .nav-links {
   display: flex;
   flex-direction: row;
-  list-style-type: none;
   width: 40%;
-  font-size: 18;
-  color: white;
+  font-size: 20;
+  color: black;
   justify-content: space-evenly;
 }
 
-.nav-links li a {
-  color: white;
-  text-decoration: none;
-  font-size: 18px;
+.text-black {
+  color: black;
+  font-weight: 500;
 }
 
-.nav-links li a:hover {
-  color: #f0a500;
-}
 
 .make-donation {
   background-color: rgb(8, 170, 62);
@@ -48,13 +59,18 @@ nav {
   padding: 10px 20px;
   border-radius: 20px;
   color: white;
+  text-decoration: none;
+}
+
+.make-donation:hover {
+  background-color: #555;
 }
 
 .hero-button {
   border-radius: 20px;
   background-color: rgb(8, 170, 62);
   border-style: outset;
-  padding: 15px 30px;
+  padding: 10px 20px;
   text-decoration: none;
   color: white;
 }
@@ -115,6 +131,9 @@ nav {
   justify-content: space-between;
   max-width: 1200px;
   margin: 0 auto;
+  text-align: justify;
+  padding: 10px;
+  
 }
 
 .about-image {
@@ -126,13 +145,13 @@ nav {
 
 .about-text {
   width: 50%;
-  padding-left: 20px;
+  padding-left: 30px;
 }
 
 .about-text h2 {
   font-size: 36px;
   margin-bottom: 20px;
-  color: #4CAF50;
+  color: #4caf50;
 }
 
 .about-text p {
@@ -145,4 +164,15 @@ nav {
   font-size: 24px;
   margin-bottom: 10px;
   color: #333;
+}
+
+.programs {
+  text-align: center;
+  color: #4caf50;
+
+}
+.program-card {
+  background-color: #f9f9f9;
+  padding: 50px 20px;
+  text-align: center;
 }
