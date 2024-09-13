@@ -54,7 +54,7 @@ border: 1px solid rgba(255, 255, 255, 0.3);
 
 
 .make-donation {
-  background-color: rgb(8, 170, 62);
+  background: linear-gradient(75.7deg, rgb(34, 126, 34) 3.8%, rgb(99, 162, 17) 87.1%);
   border: none;
   padding: 10px 20px;
   border-radius: 20px;
@@ -63,12 +63,12 @@ border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .make-donation:hover {
-  background-color: #555;
+  background-color: black;
 }
 
 .hero-button {
   border-radius: 20px;
-  background-color: rgb(8, 170, 62);
+  background: linear-gradient(75.7deg, rgb(34, 126, 34) 3.8%, rgb(99, 162, 17) 87.1%);
   border-style: outset;
   padding: 10px 20px;
   text-decoration: none;
@@ -76,7 +76,7 @@ border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .hero-button:hover {
-  background-color: #555;
+  background-color: black;
 }
 
 .hero {
@@ -141,7 +141,13 @@ border: 1px solid rgba(255, 255, 255, 0.3);
   height: auto;
   border-radius: 8px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  transition: width 1s;
 }
+
+.about-image:hover {
+  width: 550px;
+}
+
 
 .about-text {
   width: 50%;
@@ -221,4 +227,8 @@ border: 1px solid rgba(255, 255, 255, 0.3);
   .program-card {
       width: 100%;
   }
+}
+
+.program-card a {
+  color: #4caf50;
 }
