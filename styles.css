@@ -232,3 +232,111 @@ border: 1px solid rgba(255, 255, 255, 0.3);
 .program-card a {
   color: #4caf50;
 }
+
+
+/* Footer Styling */
+.footer {
+  background-color: #333;
+  color: #fff;
+  padding: 30px 30px;
+  text-align: inherit;
+  position: relative;
+}
+
+.footer .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+}
+
+.footer h3,
+.footer h4 {
+  font-size: 24px;
+  margin-bottom: 15px;
+  color: #4caf50;
+}
+
+.footer-about p {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.footer-nav ul {
+  list-style-type: none;
+}
+
+.footer-nav ul li {
+  margin-bottom: 10px;
+}
+
+.footer-nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-nav ul li a:hover {
+  color: #4caf50;
+}
+
+.footer-social .social-links {
+  display: flex;
+  gap: 15px;
+}
+
+.footer-social a {
+  font-size: 24px;
+  color: #fff;
+  transition: color 0.3s ease;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-social a:hover {
+  color: #4caf50;
+
+}
+
+.footer-contact p {
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.footer-contact a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-contact a:hover {
+  color: #4caf50;
+}
+
+.footer-bottom {
+  background-color: #222;
+  padding: 20px;
+  text-align: center;
+  margin-top: 40px;
+
+}
+
+.footer-bottom p {
+  font-size: 14px;
+  color: #aaa;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer {
+      text-align: center;
+  }
+
+  .footer .container {
+      grid-template-columns: 1fr;
+  }
+
+  .footer-social .social-links {
+      justify-content: center;
+  }
+}
