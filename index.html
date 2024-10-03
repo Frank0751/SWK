@@ -21,8 +21,31 @@
       <a class="text-black" href="#">Get Involved</a>
       <a class="text-black" href="#">Contact</a>
     </div>
-    <button class="make-donation">Make A Donation</button>
+    <button class="make-donation" id="donateBtn">Make A Donation</button>
   </nav>
+
+  <!-- Donation Modal -->
+  <div id="donationModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Make A Donation</h2>
+      <form id="donationForm">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" placeholder="Your name.." required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Your email.." required>
+
+        <label for="amount">Donation Amount</label>
+        <input type="number" id="amount" name="amount" placeholder="Enter amount" required>
+
+        <label for="message">Message (Optional)</label>
+        <textarea id="message" name="message" placeholder="Your message.."></textarea>
+
+        <button type="submit" class="submit-donation">Donate</button>
+      </form>
+    </div>
+  </div>
 
   <section class="hero">
     <div class="overlay">
@@ -101,10 +124,181 @@
       </div>
     </div>
   </section>
-  <section>
 
+  <section class="impact">
+    <h2>Our Impact</h2>
+    <div class="impact-stories">
+      <div class="story">
+        <img src="impact1.jpg" alt="Story Image">
+        <p>"Thanks to SWK, I gained invaluable skills in sustainable agriculture and am now leading a project in my
+          village."</p>
+        <span>- John Doe, Beneficiary</span>
+      </div>
+      <div class="story">
+        <img src="impact1.jpg" alt="Story Image">
+        <p>"Thanks to SWK, I gained invaluable skills in sustainable agriculture and am now leading a project in my
+          village."</p>
+        <span>- John Doe, Beneficiary</span>
+      </div>
+      <div class="story">
+        <img src="impact1.jpg" alt="Story Image">
+        <p>"Thanks to SWK, I gained invaluable skills in sustainable agriculture and am now leading a project in my
+          village."</p>
+        <span>- John Doe, Beneficiary</span>
+      </div>
+      <div class="story">
+        <img src="impact1.jpg" alt="Story Image">
+        <p>"Thanks to SWK, I gained invaluable skills in sustainable agriculture and am now leading a project in my
+          village."</p>
+        <span>- John Doe, Beneficiary</span>
+      </div>
+      <div class="story">
+        <img src="impact1.jpg" alt="Story Image">
+        <p>"Thanks to SWK, I gained invaluable skills in sustainable agriculture and am now leading a project in my
+          village."</p>
+        <span>- John Doe, Beneficiary</span>
+      </div>
+      <div class="story">
+        <img src="impact1.jpg" alt="Story Image">
+        <p>"Thanks to SWK, I gained invaluable skills in sustainable agriculture and am now leading a project in my
+          village."</p>
+        <span>- John Doe, Beneficiary</span>
+      </div>
+      <!-- Add more stories as needed -->
+    </div>
+  </section>
+  <section class="events">
+    <h2>Upcoming Events</h2>
+    <ul>
+      <li><strong>Webinar on Climate Action</strong> – October 15, 2024 (Online)</li>
+      <li><strong>Community Clean-Up Event</strong> – November 1, 2024 (Accra)</li>
+      <li><strong>Workshop: Sustainable Agriculture</strong> – November 10, 2024 (Tamale)</li>
+    </ul>
+    <a href="events.html" class="events-button">View All Events</a>
   </section>
 
+
+
+  <section class="blog">
+    <h2>Latest News</h2>
+    <article>
+      <h3>How Youth are Leading Climate Action in Ghana</h3>
+      <p>SWK has been at the forefront of engaging the youth to tackle climate challenges...</p>
+      <a href="blog.html">Read More</a>
+    </article>
+  </section>
+
+
+  <section class="gallery">
+    <h2>Our Work in Pictures</h2>
+    <div class="gallery-container">
+      <div class="gallery-item">
+        <img src="gallery1.jpg" alt="Gallery Image 1">
+        <p>Community Clean-Up Event, Accra</p>
+      </div>
+      <div class="gallery-item">
+        <img src="gallery2.jpg" alt="Gallery Image 2">
+        <p>Youth Leadership Workshop, Tamale</p>
+      </div>
+      <div class="gallery-item">
+        <img src="gallery3.jpg" alt="Gallery Image 3">
+        <p>Sustainable Agriculture Training, Cape Coast</p>
+      </div>
+      <!-- Add more gallery items as needed -->
+    </div>
+  </section>
+
+  <section class="donation-progress"></section>
+  <h2>Help Us Reach Our Goal</h2>
+  <div class="progress-bar-container">
+    <div class="progress-bar" style="width: 10%;">$100 of $10,000 Goal</div>
+  </div>
+  </section>
+
+  <section class="faq">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-item">
+      <button class="faq-question">What is SWK's mission?</button>
+      <div class="faq-answer">
+        <p>SWK is dedicated to promoting sustainable youth development and community empowerment in Ghana.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">How can I get involved?</button>
+      <div class="faq-answer">
+        <p>You can join us as a volunteer, donate, or participate in our events.</p>
+      </div>
+    </div>
+    <!-- Add more FAQ items as needed -->
+  </section>
+
+  <section class="quiz">
+    <h2>Test Your Knowledge</h2>
+    <p>How much do you know about sustainability?</p>
+    <form>
+      <label>What is the main goal of SWK?</label>
+      <input type="radio" name="q1" value="a"> A. Educating the youth<br>
+      <input type="radio" name="q1" value="b"> B. Environmental conservation<br>
+      <input type="radio" name="q1" value="c"> C. Both A & B<br>
+      <button type="submit">Submit</button>
+    </form>
+  </section>
+
+  <!-- <section class="social-media">
+    <h2>Follow Us</h2>
+    <div class="social-feed"> -->
+  <!-- Embed Twitter feed -->
+  <!-- <a class="twitter-timeline" href="https://twitter.com/yourprofile">Tweets by SWK</a>
+      <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </div>
+  </section> -->
+
+
+
+
+
+  <section class="map">
+    <h2>Where We Work</h2>
+    <div id="map" style="height: 400px;"></div>
+    <!-- Use a map API like Google Maps to create an interactive map. -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+    <script>
+      var map = L.map('map').setView([5.6037, -0.1870], 7); // Center on Ghana
+
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap contributors'
+      }).addTo(map);
+
+      // Add markers for program locations
+      L.marker([5.6037, -0.1870]).addTo(map)
+        .bindPopup('Accra: Climate Action Program')
+        .openPopup();
+    </script>
+  </section>
+
+  <!-- <section class="volunteer"></section>
+  <h2>Get Involved</h2>
+  <p>Join us in making a difference! Sign up to volunteer for our various projects.</p>
+  <a href="volunteer.html" class="volunteer-button">Become a Volunteer</a>
+  </section> -->
+
+  <section class="volunteer-signup">
+    <h2>Become a Volunteer</h2>
+    <form action="/volunteer-signup" method="POST">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="skills">Skills or Interests</label>
+      <textarea id="skills" name="skills"></textarea>
+
+      <button type="submit">Sign Up</button>
+    </form>
+  </section>
 
   <footer class="footer">
     <div class="container">
@@ -129,11 +323,19 @@
       <div class="footer-social">
         <h4>Follow Us</h4>
         <div class="social-links">
-          <a href="https://www.linkedin.com/in/frank-koomson-b227901ba/" target="_blank"><i
+          <a href="https://www.linkedin.com/company/sustainability-with-koomson/?viewAsMember=true" target="_blank"><i
               class="fab fa-linkedin"></i></a>
           <a href="https://x.com/FrankKoomson20" target="_blank"><i class="fab fa-twitter"></i></a>
           <a href=" https://frank0751.github.io/Portfolio-for-Demo/" target="_blank"><i class="fab fa-github"></i></a>
         </div>
+      </div>
+
+      <div class="newsletter">
+        <h2>Stay Updated</h2>
+        <form action="/subscribe" method="POST">
+          <input type="email" name="email" placeholder="Enter your email" required>
+          <button type="submit">Subscribe</button>
+        </form>
       </div>
 
       <div class="footer-contact">
@@ -143,9 +345,11 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2024 Frank Koomson. All Rights Reserved.</p>
+      <p>&copy; 2024 Sustainability With Koomson. All Rights Reserved.</p>
     </div>
   </footer>
+
+  <script src="./script.js"></script>
 </body>
 
 </html>
