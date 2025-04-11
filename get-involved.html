@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Involved - SWK</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <nav class="glass">
+        <a href="index.html" class="logo"><img src="./Images/SWK LOGO.png" alt="logo" /></a>
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+        <div class="nav-links">
+            <a class="text-black" href="index.html">Home</a>
+            <a class="text-black" href="about.us.html">About Us</a>
+            <a class="text-black" href="programs.html">Programs</a>
+            <a class="text-black" href="get-involved.html">Get Involved</a>
+            <a class="text-black" href="contact.html">Contact</a>
+        </div>
+        <button class="make-donation" id="donateBtn">Make A Donation</button>
+    </nav>
+
+    <section class="volunteer-signup">
+        <h2>Become a Volunteer</h2>
+        <form action="/volunteer-signup" method="POST">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <label for="skills">Skills or Interests</label>
+            <textarea id="skills" name="skills" placeholder="Tell us about your skills and interests..."></textarea>
+
+            <label for="availability">Availability</label>
+            <select id="availability" name="availability" required>
+                <option value="">Select your availability</option>
+                <option value="weekdays">Weekdays</option>
+                <option value="weekends">Weekends</option>
+                <option value="both">Both</option>
+            </select>
+
+            <button type="submit">Sign Up</button>
+        </form>
+    </section>
+
+    <section class="donation-progress">
+        <h2>Help Us Reach Our Goal</h2>
+        <div class="progress-container">
+            <div class="progress-bar" style="width: 0%;">No donations yet</div>
+        </div>
+        <div class="donation-stats">
+            <div class="donation-stat">
+                <h3>$0</h3>
+                <p>Raised</p>
+            </div>
+            <div class="donation-stat">
+                <h3>$10,000</h3>
+                <p>Goal</p>
+            </div>
+            <div class="donation-stat">
+                <h3>0</h3>
+                <p>Donors</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-about">
+                <h3>SWK</h3>
+                <p>
+                    SWK is a youth-driven non-profit in Ghana that empowers young people to lead sustainable change.
+                    Through
+                    education and collaboration with local authorities.
+                </p>
+            </div>
+
+            <div class="footer-nav">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="about.us.html">About Us</a></li>
+                    <li><a href="programs.html">Programs</a></li>
+                    <li><a href="get-involved.html">Get Involved</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-social">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/company/sustainability-with-koomson/?viewAsMember=true"
+                        target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://x.com/FrankKoomson20" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://frank0751.github.io/Portfolio-for-Demo/" target="_blank"><i
+                            class="fab fa-github"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-contact">
+                <h4>Contact Info</h4>
+                <p>Email: <a href="mailto:sustainabilitywithkoomson@gmail.com">sustainabilitywithkoomson@gmail.com</a>
+                </p>
+                <p>Location: Accra, Ghana</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Sustainability With Koomson. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>

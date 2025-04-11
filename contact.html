@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - SWK</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <nav class="glass">
+        <a href="index.html" class="logo"><img src="./Images/SWK LOGO.png" alt="logo" /></a>
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+        <div class="nav-links">
+            <a class="text-black" href="index.html">Home</a>
+            <a class="text-black" href="about.us.html">About Us</a>
+            <a class="text-black" href="programs.html">Programs</a>
+            <a class="text-black" href="get-involved.html">Get Involved</a>
+            <a class="text-black active" href="contact.html">Contact</a>
+        </div>
+        <button class="make-donation" id="donateBtn">Make A Donation</button>
+    </nav>
+
+    <section class="contact">
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2>Get in Touch</h2>
+                <p class="contact-description">We'd love to hear from you! Whether you have questions about our
+                    programs, want to get involved, or just want to say hello, we're here to help.</p>
+
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h3>Email</h3>
+                            <p><a
+                                    href="mailto:sustainabilitywithkoomson@gmail.com">sustainabilitywithkoomson@gmail.com</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h3>Phone</h3>
+                            <p>+233 XX XXX XXXX</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h3>Address</h3>
+                            <p>Accra, Ghana</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="social-links">
+                    <h3>Follow Us</h3>
+                    <div class="social-icons">
+                        <a href="https://www.linkedin.com/company/sustainability-with-koomson/?viewAsMember=true"
+                            target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://x.com/FrankKoomson20" target="_blank" aria-label="Twitter"><i
+                                class="fab fa-twitter"></i></a>
+                        <a href="https://frank0751.github.io/Portfolio-for-Demo/" target="_blank" aria-label="GitHub"><i
+                                class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <form class="contact-form" id="contactForm">
+                <h2>Send us a Message</h2>
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required placeholder="Enter your full name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required placeholder="Enter your email address">
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" required placeholder="Enter the subject">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required placeholder="Type your message here..."></textarea>
+                </div>
+                <div id="form-message" class="form-message"></div>
+                <button type="submit" class="submit-button">
+                    <span>Send Message</span>
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <section class="map-section">
+        <h2>Our Location</h2>
+        <div class="map-container">
+            <div id="map"></div>
+            <div class="map-overlay">
+                <h3>Visit Us</h3>
+                <p>We're located in the heart of Accra, Ghana. Feel free to stop by during our office hours.</p>
+                <div class="office-hours">
+                    <h4>Office Hours</h4>
+                    <p>Monday - Friday: 9:00 AM - 5:00 PM</p>
+                    <p>Saturday: 10:00 AM - 2:00 PM</p>
+                    <p>Sunday: Closed</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-about">
+                <h3>SWK</h3>
+                <p>
+                    SWK is a youth-driven non-profit in Ghana that empowers young people to lead sustainable change.
+                    Through education and collaboration with local authorities.
+                </p>
+            </div>
+
+            <div class="footer-nav">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="about.us.html">About Us</a></li>
+                    <li><a href="programs.html">Programs</a></li>
+                    <li><a href="get-involved.html">Get Involved</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-social">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/company/sustainability-with-koomson/?viewAsMember=true"
+                        target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://x.com/FrankKoomson20" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://frank0751.github.io/Portfolio-for-Demo/" target="_blank"><i
+                            class="fab fa-github"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-contact">
+                <h4>Contact Info</h4>
+                <p>Email: <a href="mailto:sustainabilitywithkoomson@gmail.com">sustainabilitywithkoomson@gmail.com</a>
+                </p>
+                <p>Location: Accra, Ghana</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Sustainability With Koomson. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="./script.js"></script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        var map = L.map('map').setView([5.6037, -0.1870], 13);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+        L.marker([5.6037, -0.1870]).addTo(map)
+            .bindPopup('SWK Headquarters')
+            .openPopup();
+
+        // Initialize EmailJS with your public key
+        (function () {
+            emailjs.init("_fnaXZgjkIAcn1MWw");
+        })();
+
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const form = this;
+            const submitButton = form.querySelector('.submit-button');
+            const formMessage = document.getElementById('form-message');
+
+            // Disable submit button and show loading state
+            submitButton.disabled = true;
+            submitButton.innerHTML = '<span>Sending...</span><i class="fas fa-spinner fa-spin"></i>';
+
+            // Get form data - make sure these variable names match your EmailJS template exactly
+            const templateParams = {
+                from_name: form.name.value,
+                from_email: form.email.value,
+                subject: form.subject.value,
+                message: form.message.value,
+                to_email: 'sustainabilitywithkoomson@gmail.com',
+                reply_to: form.email.value
+            };
+
+            console.log('Sending email with template params:', templateParams);
+
+            // Send email using EmailJS
+            emailjs.send('service_unjb7s8', 'template_s13cq2r', templateParams)
+                .then(function (response) {
+                    console.log('Email sent successfully:', response);
+                    formMessage.className = 'form-message success';
+                    formMessage.textContent = 'Message sent successfully!';
+                    form.reset();
+                })
+                .catch(function (error) {
+                    console.error('Email sending failed:', error);
+                    formMessage.className = 'form-message error';
+                    formMessage.textContent = 'Failed to send message. Please try again later.';
+
+                    // More detailed error message
+                    if (error.text) {
+                        console.error('Error details:', error.text);
+                        formMessage.textContent += ' Error: ' + error.text;
+                    }
+                })
+                .finally(function () {
+                    // Re-enable submit button and restore original text
+                    submitButton.disabled = false;
+                    submitButton.innerHTML = '<span>Send Message</span><i class="fas fa-paper-plane"></i>';
+
+                    // Clear message after 5 seconds
+                    setTimeout(() => {
+                        formMessage.textContent = '';
+                        formMessage.className = 'form-message';
+                    }, 5000);
+                });
+        });
+    </script>
+</body>
+
+</html>

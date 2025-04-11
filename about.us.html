@@ -1,35 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>About Us - SWK</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="about.us.style.css">
 </head>
+
 <body>
+    <nav class="glass">
+        <a href="index.html" class="logo"><img src="./Images/SWK LOGO.png" alt="logo" /></a>
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </div>
+        <div class="nav-links">
+            <a class="text-black" href="index.html">Home</a>
+            <a class="text-black active" href="about.us.html">About Us</a>
+            <a class="text-black" href="programs.html">Programs</a>
+            <a class="text-black" href="get-involved.html">Get Involved</a>
+            <a class="text-black" href="contact.html">Contact</a>
+        </div>
+        <button class="make-donation" id="donateBtn">Make A Donation</button>
+    </nav>
+
+    <!-- Donation Modal -->
+    <div id="donationModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Make A Donation</h2>
+            <form id="donationForm">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" placeholder="Your name.." required>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Your email.." required>
+
+                <label for="amount">Donation Amount</label>
+                <input type="number" id="amount" name="amount" placeholder="Enter amount" required>
+
+                <label for="message">Message (Optional)</label>
+                <textarea id="message" name="message" placeholder="Your message.."></textarea>
+
+                <button type="submit" class="submit-donation">Donate</button>
+            </form>
+        </div>
+    </div>
+
     <section class="about">
         <div class="about-container">
-                <img src="./Images/section body.png" alt="About Us Image" class="about-image">
-                <div class="about-text">
-            <h2>About Us</h2>
-        <p>Sustainability with Koomson (SWK) is a youth-led, youth-focused non-profit organization
-            dedicated to promoting sustainable youth development and community empowerment in
-            Ghana. Our mission is to equip young people with the necessary skills, knowledge, and
-            opportunities to address critical issues related to environmental sustainability, community
-            development, natural resource governance, agriculture, leadership and personal growth.
-            Through active engagement with local assemblies and Metropolitan, Municipal, and District
-            Assemblies (MMDAs), we strive to create positive change in various communities across the
-            country.</p>
-        <h3>Our Mission</h3>
-        <p>To empower and mobilize young people as agents of sustainable change, fostering their
-            active involvement in community development, environmental conservation, responsible
-            natural resource management, and sustainable agriculture practices, while nurturing their
-            leadership and personal growth.</p>
-        <h3>Our Vision</h3>
-        <p>A Ghana where empowered and engaged youth are driving sustainable development,
-            contributing to thriving communities, and shaping a better future for themselves and their
-            nation.</p>
+            <img src="./Images/section body.png" alt="About Us Image" class="about-image">
+            <div class="about-text">
+                <h2>About Us</h2>
+                <p>Sustainability with Koomson (SWK) is a youth-led, youth-focused non-profit organization
+                    dedicated to promoting sustainable youth development and community empowerment in
+                    Ghana. Our mission is to equip young people with the necessary skills, knowledge, and
+                    opportunities to address critical issues related to environmental sustainability, community
+                    development, natural resource governance, agriculture, leadership and personal growth.
+                    Through active engagement with local assemblies and Metropolitan, Municipal, and District
+                    Assemblies (MMDAs), we strive to create positive change in various communities across the
+                    country.</p>
+                <h3>Our Mission</h3>
+                <p>To empower and mobilize young people as agents of sustainable change, fostering their
+                    active involvement in community development, environmental conservation, responsible
+                    natural resource management, and sustainable agriculture practices, while nurturing their
+                    leadership and personal growth.</p>
+                <h3>Our Vision</h3>
+                <p>A Ghana where empowered and engaged youth are driving sustainable development,
+                    contributing to thriving communities, and shaping a better future for themselves and their
+                    nation.</p>
+            </div>
         </div>
-        </section>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-about">
+                <h3>SWK</h3>
+                <p>
+                    SWK is a youth-driven non-profit in Ghana that empowers young people to lead sustainable change.
+                    Through
+                    education and collaboration with local authorities.
+                </p>
+            </div>
+
+            <div class="footer-nav">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-social">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/company/sustainability-with-koomson/?viewAsMember=true"
+                        target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://x.com/FrankKoomson20" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href=" https://frank0751.github.io/Portfolio-for-Demo/" target="_blank"><i
+                            class="fab fa-github"></i></a>
+                </div>
+            </div>
+
+            <div class="newsletter">
+                <h2>Stay Updated</h2>
+                <form action="/subscribe" method="POST">
+                    <input type="email" name="email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+
+            <div class="footer-contact">
+                <h4>Contact Info</h4>
+                <p>Email: <a href="mailto:fkoomson008@st.ug.edu.gh">sustainabilitywithkoomson@gmail.com</a></p>
+                <p>Location: Accra, Ghana</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Sustainability With Koomson. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="./script.js"></script>
 </body>
+
 </html>
