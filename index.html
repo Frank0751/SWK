@@ -19,12 +19,20 @@
     </div>
     <div class="nav-links">
       <a class="text-black" href="index.html">Home</a>
-      <a class="text-black" href="about.us.html">About Us</a>
-      <a class="text-black" href="programs.html">Programs</a>
+      <div class="nav-item dropdown">
+        <a class="text-black dropdown-toggle" href="about.us.html" id="aboutLink">About <i
+            class="fas fa-caret-down"></i></a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="who-we-are.html">Who We Are</a>
+          <a class="dropdown-item" href="meet-the-team.html">Meet The Team</a>
+        </div>
+      </div>
+      <a class="text-black" href="programs.html">Our Work</a>
+      <a class="text-black" href="resources.html">Resources</a>
       <a class="text-black" href="get-involved.html">Get Involved</a>
       <a class="text-black" href="contact.html">Contact</a>
     </div>
-    <button class="make-donation" id="donateBtn">Make A Donation</button>
+    <button class="make-donation" id="donateBtn">Partner With Us</button>
   </nav>
 
   <!-- Donation Modal -->
@@ -45,7 +53,38 @@
         <label for="message">Message (Optional)</label>
         <textarea id="message" name="message" placeholder="Your message.."></textarea>
 
-        <button type="submit" class="submit-donation">Donate</button>
+        <fieldset class="donation-medium-fieldset">
+          <legend>Choose Donation Medium</legend>
+          <div class="radio-group">
+            <input type="radio" id="bankTransfer" name="donationMedium" value="bank">
+            <label for="bankTransfer">Bank Transfer</label>
+          </div>
+          <div class="radio-group">
+            <input type="radio" id="mobileMoney" name="donationMedium" value="momo">
+            <label for="mobileMoney">Mobile Money</label>
+          </div>
+        </fieldset>
+
+        <div id="accountDetails" class="account-details-container" style="display: none;">
+          <h4>Please use the details below to complete your donation:</h4>
+          <div id="bankDetails" class="details-set" style="display: none;">
+            <p><strong>Bank Name:</strong> YOUR BANK NAME</p>
+            <p><strong>Account Name:</strong> YOUR ACCOUNT NAME</p>
+            <p><strong>Account Number:</strong> YOUR BANK ACCOUNT NUMBER</p>
+            <p><strong>Branch:</strong> YOUR BANK BRANCH</p>
+            <p><strong>Swift Code (for international transfers):</strong> YOUR SWIFT CODE (Optional)</p>
+          </div>
+          <div id="momoDetails" class="details-set" style="display: none;">
+            <p><strong>Network:</strong> YOUR MOBILE MONEY NETWORK (e.g., MTN, Vodafone, AirtelTigo)</p>
+            <p><strong>Registered Name:</strong> YOUR REGISTERED MOBILE MONEY NAME</p>
+            <p><strong>Number:</strong> YOUR MOBILE MONEY NUMBER</p>
+            <p><strong>Reference:</strong> Please use your name as the reference.</p>
+          </div>
+        </div>
+
+        <div id="formResponseMessage" class="form-message-modal"></div>
+
+        <button type="submit" class="submit-donation">Proceed with Donation</button>
       </form>
     </div>
   </div>
@@ -56,32 +95,15 @@
       <p id="hero-subtext">
         Join us in creating a sustainable future for Ghana
       </p>
-      <button class="hero-button">Learn More</button>
-    </div>
-  </section>
-  <section class="about">
-    <div class="about-container">
-      <img src="./Images/section body.png" alt="About Us Image" class="about-image">
-      <div class="about-text">
-        <h2>About Us</h2>
-        <p>Sustainability with Koomson (SWK) is a youth-led, youth-focused non-profit organization
-          dedicated to promoting sustainable youth development and community empowerment in
-          Ghana. Our mission is to equip young people with the necessary skills, knowledge, and
-          opportunities to address critical issues related to environmental sustainability, community
-          development, natural resource governance, agriculture, leadership and personal growth.
-          Through active engagement with local assemblies and Metropolitan, Municipal, and District
-          Assemblies (MMDAs), we strive to create positive change in various communities across the
-          country.</p>
-        <h3>Our Mission</h3>
-        <p>To empower and mobilize young people as agents of sustainable change, fostering their
-          active involvement in community development, environmental conservation, responsible
-          natural resource management, and sustainable agriculture practices, while nurturing their
-          leadership and personal growth.</p>
-        <h3>Our Vision</h3>
-        <p>A Ghana where empowered and engaged youth are driving sustainable development,
-          contributing to thriving communities, and shaping a better future for themselves and their
-          nation.</p>
+      <div class="hero-buttons-container">
+        <a href="who-we-are.html" class="hero-button about-us-btn">About Us</a>
+        <button class="hero-button partner-us-btn" id="partnerUsHeroBtn">Partner With Us</button>
       </div>
+      <div class="scroll-indicator">
+        <div class="scroll-arrow"></div>
+        <div class="scroll-arrow"></div>
+      </div>
+    </div>
   </section>
   <section>
     <div class="programs">
@@ -184,34 +206,77 @@
       <!-- Add more stories as needed -->
     </div>
   </section>
+
   <section class="events">
     <h2>Upcoming Events</h2>
     <ul>
-      <li><strong>Webinar on Climate Action</strong> – October 15, 2024 (Online)</li>
-      <li><strong>Community Clean-Up Event</strong> – November 1, 2024 (Accra)</li>
-      <li><strong>Workshop: Sustainable Agriculture</strong> – November 10, 2024 (Tamale)</li>
+      <li><strong>Youth Climate Action Summit</strong> – June 29, 2025 (Accra International Conference Center)</li>
+      <li><strong>Sustainable Agriculture Workshop Series</strong> – July 15-17, 2025 (Kumasi)</li>
+      <li><strong>Community Waste Management Training</strong> – August 5, 2025 (Cape Coast)</li>
+      <li><strong>Environmental Leadership Conference</strong> – September 10-12, 2025 (Tamale)</li>
+      <li><strong>Green Innovation Hackathon</strong> – October 1, 2025 (Online & Accra Tech Hub)</li>
     </ul>
     <a href="events.html" class="events-button">View All Events</a>
   </section>
 
-
-
   <section class="blog">
     <h2>Latest News</h2>
-    <article>
-      <h3>How Youth are Leading Climate Action in Ghana</h3>
-      <p>SWK has been at the forefront of engaging the youth to tackle climate challenges...</p>
-      <a href="blog.html">Read More</a>
-    </article>
-  </section>
+    <div class="blog-grid">
+      <article>
+        <h3>Ghana Green Guard: $25B Climate Initiative Launched</h3>
+        <p>A groundbreaking $25 billion public-private climate and socio-economic initiative has been launched to drive
+          environmental restoration and community development across Ghana.</p>
+        <a href="https://carbonherald.com/ghana-green-guard-25b-climate-and-socio-economic-initiative-launched/"
+          target="_blank">Read More</a>
+      </article>
 
+      <article>
+        <h3>Queen Titiaka's Bold Climate Action Project</h3>
+        <p>The Government of Ghana endorses an innovative climate action initiative focusing on sustainable waste
+          management, afforestation, and youth empowerment.</p>
+        <a href="https://www.myjoyonline.com/government-of-ghana-endorses-queen-titiakas-bold-climate-action-project-to-empower-communities/"
+          target="_blank">Read More</a>
+      </article>
+
+      <article>
+        <h3>EnABLE: New Climate Benefits Initiative for Cocoa Communities</h3>
+        <p>A new project launches to ensure inclusive climate benefits for cocoa-growing communities, targeting 20,000
+          farmers across 100 communities.</p>
+        <a href="https://www.solidaridadnetwork.org/news/new-initiative-to-ensure-inclusive-climate-benefits-for-cocoa-communities-launched-in-ghana/"
+          target="_blank">Read More</a>
+      </article>
+
+      <article>
+        <h3>World Environment Day: Call for Ecosystem Restoration</h3>
+        <p>Ghana observes World Environment Day with a strong focus on land restoration, desertification, and drought
+          resilience initiatives.</p>
+        <a href="https://www.environewsnigeria.com/ghana-2024-world-environmental-day-observed-with-call-for-land-ecosystem-restoration/"
+          target="_blank">Read More</a>
+      </article>
+
+      <article>
+        <h3>Ghana's New Emissions Levy Implementation</h3>
+        <p>Ghana becomes the third African country to introduce a carbon tax, implementing a new fuel emissions levy to
+          promote eco-friendly technology and green energy.</p>
+        <a href="https://www.bbc.com/news/world-africa-68163587" target="_blank">Read More</a>
+      </article>
+    </div>
+  </section>
 
   <section class="gallery">
     <h2>Our Work in Pictures</h2>
     <div class="gallery-container">
       <div class="gallery-item">
-        <img src="gallery1.jpg" alt="Gallery Image 1">
-        <p>Community Clean-Up Event, Accra</p>
+        <a href="https://docs.google.com/document/d/1aGeyKocjQagAjONgsRtkaUWs3qeADXRx4v2rA9WwQkk/edit?usp=sharing"
+          target="_blank">
+          <img src="https://drive.google.com/uc?export=view&id=1vMEr-2D0IjGj4YMDka-I0WcerlDXhKRc"
+            alt="GWMA Agric. Dept. Engagement">
+        </a>
+        <p>
+          Engagement with GWMA Agric. Dept.<br>
+          <a href="https://docs.google.com/document/d/1aGeyKocjQagAjONgsRtkaUWs3qeADXRx4v2rA9WwQkk/edit?usp=sharing"
+            target="_blank">Read Report</a>
+        </p>
       </div>
       <div class="gallery-item">
         <img src="gallery2.jpg" alt="Gallery Image 2">
@@ -221,7 +286,11 @@
         <img src="gallery3.jpg" alt="Gallery Image 3">
         <p>Sustainable Agriculture Training, Cape Coast</p>
       </div>
-      <!-- Add more gallery items as needed -->
+      <!-- Add more gallery-item blocks as you have more works -->
+      <div class="gallery-item">
+        <img src="placeholder.jpg" alt="More coming soon">
+        <p>More of our impact coming soon...</p>
+      </div>
     </div>
   </section>
 
@@ -289,10 +358,6 @@
       <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     </div>
   </section> -->
-
-
-
-
 
   <section class="map">
     <h2>Where We Work</h2>

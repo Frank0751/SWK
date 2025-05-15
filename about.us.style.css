@@ -326,3 +326,120 @@ body {
     font-size: 1.2rem;
   }
 }
+
+/* Meet the Team Section */
+.meet-the-team {
+  padding: 4rem 2rem;
+  background-color: #f8f9fa;
+  /* Light grey background */
+  text-align: center;
+}
+
+.meet-the-team .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.meet-the-team h2 {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  /* Dark blue-grey */
+  margin-bottom: 3rem;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.meet-the-team h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background-color: #28a745;
+  /* SWK Green */
+  border-radius: 2px;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  justify-items: center;
+}
+
+.team-member {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  max-width: 320px;
+}
+
+.team-member:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.team-member-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 1.5rem;
+  border: 4px solid #28a745;
+  /* SWK Green border */
+}
+
+.team-member-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.team-member h3 {
+  font-size: 1.5rem;
+  color: #343a40;
+  /* Dark grey */
+  margin-bottom: 0.5rem;
+}
+
+.team-member p {
+  font-size: 1rem;
+  color: #6c757d;
+  /* Medium grey */
+}
+
+/* Responsive adjustments for the team section */
+@media (max-width: 768px) {
+  .meet-the-team h2 {
+    font-size: 2rem;
+  }
+
+  .team-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+
+  .team-member {
+    padding: 1.5rem;
+  }
+
+  .team-member-img {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .meet-the-team {
+    padding: 3rem 1rem;
+  }
+
+  .team-grid {
+    grid-template-columns: 1fr;
+    /* Stack on very small screens */
+  }
+}

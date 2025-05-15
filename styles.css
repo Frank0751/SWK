@@ -45,11 +45,11 @@ nav {
 
 .logo {
   display: flex;
-    align-items: center;
-  }
+  align-items: center;
+}
 
-  .logo img {
-  height: 60px;
+.logo img {
+  height: 80px;
   width: auto;
   transition: height 0.3s ease;
 }
@@ -120,6 +120,63 @@ nav {
   color: #4caf50;
 }
 
+/* Dropdown Menu Styles */
+.nav-item.dropdown {
+  position: relative;
+  /* Establishes a positioning context for the dropdown menu */
+}
+
+.dropdown-toggle i {
+  margin-left: 5px;
+  /* Space for the caret icon */
+  font-size: 0.8em;
+  /* Slightly smaller caret */
+}
+
+.dropdown-menu {
+  display: none;
+  /* Hidden by default */
+  position: absolute;
+  top: 100%;
+  /* Position below the nav item */
+  left: 0;
+  background-color: white;
+  border: 1px solid #eee;
+  border-top: none;
+  /* Avoid double border with nav item's bottom border if any */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  min-width: 180px;
+  /* Minimum width of the dropdown */
+  z-index: 60;
+  /* Ensure it's above other nav content but below modal */
+  border-radius: 0 0 4px 4px;
+  /* Rounded bottom corners */
+}
+
+.nav-item.dropdown:hover .dropdown-menu,
+.nav-item.dropdown:focus-within .dropdown-menu {
+  /* Show on hover or when an item inside has focus */
+  display: block;
+}
+
+.dropdown-item {
+  display: block;
+  padding: 10px 15px;
+  color: #333;
+  text-decoration: none;
+  font-size: 15px;
+  /* Match nav link font size or adjust as needed */
+  white-space: nowrap;
+  /* Prevent wrapping */
+}
+
+.dropdown-item:hover {
+  background-color: #f5f5f5;
+  /* Light grey background on hover */
+  color: #4caf50;
+  /* SWK green text on hover */
+}
+
 /* Responsive Navigation */
 @media (max-width: 1024px) {
   .nav-links {
@@ -131,12 +188,46 @@ nav {
     padding: 8px 16px;
     font-size: 14px;
   }
+
+  /* Responsive Dropdown (Mobile Menu) */
+  .nav-links.active .nav-item.dropdown .dropdown-menu {
+    position: static;
+    /* Reset absolute positioning */
+    display: block;
+    /* Always show in active mobile menu if parent is hovered/focused */
+    background-color: #f9f9f9;
+    /* Slightly different background for mobile dropdown */
+    box-shadow: none;
+    border: none;
+    border-top: 1px solid #eee;
+    /* Separator line */
+    width: 100%;
+    border-radius: 0;
+  }
+
+  .nav-links.active .dropdown-item {
+    text-align: center;
+    /* Center dropdown items in mobile */
+    padding: 12px 15px;
+    /* Adjust padding for mobile */
+    color: #555;
+    /* Slightly different color for mobile for contrast if needed */
+  }
+
+  .nav-links.active .dropdown-item:hover {
+    background-color: #e9e9e9;
+  }
+
+  .nav-links.active .dropdown-toggle i {
+    display: inline-block;
+    /* Ensure caret is visible */
+  }
 }
 
 @media (max-width: 768px) {
   nav {
     padding: 15px 5%;
-    height: 70px;
+    height: 80px;
   }
 
   .menu-toggle {
@@ -180,7 +271,7 @@ nav {
   }
 
   .logo img {
-    height: 50px;
+    height: 70px;
   }
 
   body {
@@ -191,11 +282,11 @@ nav {
 @media (max-width: 480px) {
   nav {
     padding: 10px 5%;
-    height: 60px;
+    height: 70px;
   }
 
   .logo img {
-    height: 40px;
+    height: 60px;
   }
 
   .make-donation {
@@ -226,13 +317,33 @@ nav {
   border-radius: 20px;
   background: linear-gradient(75.7deg, rgb(34, 126, 34) 3.8%, rgb(99, 162, 17) 87.1%);
   border-style: outset;
-  padding: 10px 20px;
+  border-color: transparent;
+  padding: 12px 25px;
   text-decoration: none;
   color: white;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
 }
 
 .hero-button:hover {
-  background-color: black;
+  background: linear-gradient(75.7deg, rgb(28, 100, 28) 3.8%, rgb(80, 130, 15) 87.1%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.hero-buttons-container {
+  display: flex;
+  gap: 20px;
+  margin-top: 25px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.hero-button.about-us-btn {
+  /* This button will use the base .hero-button style primarily */
 }
 
 .hero {
@@ -259,7 +370,7 @@ nav {
 
   .hero h1 {
     font-size: 1.8rem;
-}
+  }
 
   .hero p {
     font-size: 1.2rem;
@@ -657,70 +768,112 @@ button.submit-donation:hover {
   text-decoration: underline;
 }
 
+/* Gallery Section Styles - Updated */
 .gallery {
-  padding: 50px 20px;
-  background-color: #f9f9f9; 
+  padding: 60px 20px;
+  /* Consistent padding */
+  background-color: #f8f9fa;
+  /* Light background */
   text-align: center;
 }
 
-.gallery-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-}
-
 .gallery h2 {
-  font-size: 36px;
-  margin-bottom: 20px;
-  color: #4caf50;
+  font-size: 2.5rem;
+  /* Prominent title */
+  color: #2c3e50;
+  margin-bottom: 40px;
+  /* Spacing below title */
+  position: relative;
+  /* For the accent line */
+  padding-bottom: 1rem;
+  /* Space for accent line */
+  display: inline-block;
+  /* To contain the ::after element correctly */
 }
 
-.gallery-grid {
+.gallery h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background-color: #28a745;
+  /* SWK Green */
+  border-radius: 2px;
+}
+
+.gallery-container {
+  /* Changed from gallery-grid to match HTML */
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  padding: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  /* Responsive grid */
+  gap: 2rem;
+  /* Space between items */
+  max-width: 1200px;
+  margin: 0 auto;
+  /* Center the grid */
+  text-align: left;
+  /* Reset text-align for items if needed */
+}
+
+.gallery-item {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+  /* Card shadow */
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  /* Align content vertically */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  /* In case content overflows */
+}
+
+.gallery-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
 }
 
 .gallery-item img {
   width: 100%;
-  height: auto;
+  height: 220px;
+  /* Fixed height for visual consistency */
+  object-fit: cover;
+  /* Crop image to fit */
   border-radius: 8px;
-}
-
-.gallery-item:hover img {
-  opacity: 0.8;
-}
-
-.gallery-item:hover .caption {
-  opacity: 1;
-}
-
-.gallery-item {
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  width: 300px;
-  text-align: center;
-  position: relative;
+  /* Rounded corners for image */
+  margin-bottom: 1rem;
 }
 
 .gallery-item p {
-  padding: 10px;
-  color: #333;
+  font-size: 1rem;
+  color: #6c757d;
+  /* Caption text color */
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  flex-grow: 1;
+  /* Allow p to take available space */
 }
 
-.caption {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  color: white;
-  background-color: rgba(0, 0, 0, 0.5);
-  padding: 5px;
-  opacity: 0;
-  transition: opacity 0.3s;
+.gallery-item p a {
+  display: inline-block;
+  background-color: #28a745;
+  color: #ffffff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+  margin-top: auto;
+  /* Pushes link to bottom of flex item */
+}
+
+.gallery-item p a:hover {
+  background-color: #218838;
+  /* Darker green on hover */
 }
 
 /* Donation Progress Styles */
@@ -795,9 +948,9 @@ button.submit-donation:hover {
 @media (max-width: 768px) {
   .progress-container {
     height: 25px;
-}
+  }
 
-.progress-bar {
+  .progress-bar {
     font-size: 0.8rem;
   }
 
@@ -1584,4 +1737,562 @@ button.submit-donation:hover {
 .submit-button:disabled {
   opacity: 0.7;
   cursor: not-allowed;
+}
+
+.scroll-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.scroll-arrow {
+  width: 20px;
+  height: 20px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+  margin: 5px 0;
+  animation: bounce 2s infinite;
+}
+
+.scroll-arrow:nth-child(2) {
+  animation-delay: 0.2s;
+  opacity: 0.7;
+}
+
+@keyframes bounce {
+
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: rotate(45deg) translateY(0);
+  }
+
+  40% {
+    transform: rotate(45deg) translateY(-10px);
+  }
+
+  60% {
+    transform: rotate(45deg) translateY(-5px);
+  }
+}
+
+/* General Section Styling */
+section {
+  padding: 3rem 2rem;
+  /* Increased default padding for sections */
+}
+
+/* Blog Section Specific Styles */
+.blog {
+  background-color: #f8f9fa;
+  /* Light background for the section */
+}
+
+.blog h2 {
+  text-align: center;
+  color: #2c3e50;
+  /* Dark blue-grey for heading */
+  margin-bottom: 3rem;
+  font-size: 2.5rem;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.blog h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background-color: #28a745;
+  /* SWK Green */
+  border-radius: 2px;
+}
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  /* Responsive grid */
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.blog article {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.blog article:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+}
+
+.blog article h3 {
+  font-size: 1.5rem;
+  color: #343a40;
+  /* Darker grey for article title */
+  margin-bottom: 1rem;
+}
+
+.blog article p {
+  font-size: 1rem;
+  color: #6c757d;
+  /* Medium grey for text */
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+  /* Allows paragraph to take available space */
+}
+
+.blog article a {
+  display: inline-block;
+  background-color: #28a745;
+  /* SWK Green */
+  color: #ffffff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+  /* Pill shape */
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  align-self: flex-start;
+  /* Aligns button to the start of the flex container */
+}
+
+.blog article a:hover {
+  background-color: #218838;
+  /* Darker green on hover */
+  transform: translateY(-2px);
+}
+
+/* Responsive adjustments for blog section */
+@media (max-width: 768px) {
+  .blog h2 {
+    font-size: 2rem;
+  }
+
+  .blog-grid {
+    grid-template-columns: 1fr;
+    /* Single column on smaller tablets */
+  }
+
+  .blog article {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  section {
+    padding: 2rem 1rem;
+    /* Adjust padding for very small screens */
+  }
+
+  .blog article h3 {
+    font-size: 1.3rem;
+  }
+
+  .blog article a {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Scroll Animation Styles */
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.scroll-animate.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Donation Modal Enhancements */
+.donation-medium-fieldset {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 1rem;
+  margin: 1.5rem 0;
+}
+
+.donation-medium-fieldset legend {
+  padding: 0 0.5rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.radio-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.8rem;
+}
+
+.radio-group input[type="radio"] {
+  margin-right: 0.5rem;
+  accent-color: #28a745;
+  /* SWK Green for radio button */
+}
+
+.radio-group label {
+  font-size: 1rem;
+  color: #555;
+}
+
+.account-details-container {
+  background-color: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 6px;
+  padding: 1.5rem;
+  margin-top: 1rem;
+  text-align: left;
+}
+
+.account-details-container h4 {
+  color: #2c3e50;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.details-set p {
+  margin-bottom: 0.5rem;
+  color: #495057;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.details-set p strong {
+  color: #343a40;
+}
+
+.form-message-modal {
+  padding: 0.8rem 1rem;
+  margin: 1rem 0;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  text-align: center;
+  display: none;
+  /* Hidden by default */
+}
+
+.form-message-modal.success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.form-message-modal.error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus,
+textarea:focus {
+  border-color: #28a745;
+  box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.1);
+  outline: none;
+}
+
+/* Meet The Team Page Styles */
+.meet-the-team-page .page-header {
+  text-align: center;
+  padding: 2rem 1rem;
+  background-color: #f8f9fa;
+  /* Light background for header */
+}
+
+.meet-the-team-page .page-header h1 {
+  color: #2c3e50;
+  /* Dark blue-grey for heading */
+  margin-bottom: 0.5rem;
+}
+
+.meet-the-team-page .page-header p {
+  font-size: 1.1rem;
+  color: #6c757d;
+  /* Medium grey for subheading */
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.team-section {
+  padding: 3rem 2rem;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  /* Responsive grid */
+  gap: 2rem;
+  /* Space between cards */
+  max-width: 1200px;
+  margin: 0 auto;
+  /* Center the grid */
+}
+
+.team-member-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  padding: 2rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.team-member-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+}
+
+.team-member-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  /* Circular image */
+  object-fit: cover;
+  /* Ensure image covers the area */
+  margin: 0 auto 1.5rem auto;
+  /* Center image and add space below */
+  border: 4px solid #28a745;
+  /* SWK Green border */
+}
+
+.team-member-info h3 {
+  font-size: 1.5rem;
+  color: #343a40;
+  /* Darker grey for name */
+  margin-bottom: 0.25rem;
+}
+
+.team-member-title {
+  font-size: 1rem;
+  color: #28a745;
+  /* SWK Green for title */
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.team-member-bio {
+  font-size: 0.95rem;
+  color: #6c757d;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+  /* Allows bio to take available space */
+}
+
+.team-member-social {
+  margin-top: auto;
+  /* Pushes social links to the bottom */
+}
+
+.team-member-social a {
+  color: #28a745;
+  /* SWK Green */
+  font-size: 1.5rem;
+  margin: 0 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.team-member-social a:hover {
+  color: #218838;
+  /* Darker green on hover */
+}
+
+/* Responsive adjustments for team section */
+@media (max-width: 768px) {
+  .team-grid {
+    grid-template-columns: 1fr;
+    /* Single column on smaller tablets */
+  }
+
+  .team-member-card {
+    padding: 1.5rem;
+  }
+
+  .team-member-img {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .meet-the-team-page .page-header {
+    padding: 1.5rem 1rem;
+  }
+
+  .team-section {
+    padding: 2rem 1rem;
+  }
+
+  .team-member-info h3 {
+    font-size: 1.3rem;
+  }
+
+  .team-member-title {
+    font-size: 0.9rem;
+  }
+
+  .team-member-bio {
+    font-size: 0.9rem;
+  }
+}
+
+/* Who We Are Page Styles */
+.who-we-are-page .page-header {
+  text-align: center;
+  padding: 2.5rem 1rem;
+  background-color: #e9f5e9;
+  /* A very light green, complementary to SWK green */
+  border-bottom: 3px solid #28a745;
+}
+
+.who-we-are-page .page-header h1 {
+  color: #2c3e50;
+  /* Dark blue-grey for heading */
+  margin-bottom: 0.75rem;
+  font-size: 2.8rem;
+}
+
+.who-we-are-page .content-section {
+  padding: 2.5rem 2rem;
+  max-width: 900px;
+  /* Max width for readability */
+  margin: 0 auto;
+  /* Center content sections */
+  border-bottom: 1px solid #e0e0e0;
+  /* Subtle separator line */
+}
+
+.who-we-are-page .content-section:last-child {
+  border-bottom: none;
+  /* No border for the very last section */
+}
+
+.who-we-are-page .content-section h2 {
+  color: #28a745;
+  /* SWK Green for section titles */
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #d0e0d0;
+  display: inline-block;
+  /* So border only spans the text width */
+}
+
+.who-we-are-page .content-section h3 {
+  color: #2c3e50;
+  /* Darker blue-grey for sub-headings */
+  font-size: 1.5rem;
+  margin-top: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.who-we-are-page .content-section p,
+.who-we-are-page .content-section ul li {
+  font-size: 1.05rem;
+  color: #555;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.who-we-are-page .content-section ul {
+  list-style: none;
+  /* Remove default bullets */
+  padding-left: 0;
+}
+
+.who-we-are-page .content-section ul li {
+  padding-left: 1.8rem;
+  position: relative;
+  margin-bottom: 0.75rem;
+}
+
+.who-we-are-page .content-section ul li::before {
+  content: "\f00c";
+  /* Font Awesome check icon */
+  font-family: "Font Awesome 5 Free";
+  /* Ensure correct Font Awesome family */
+  font-weight: 900;
+  /* For solid icons */
+  position: absolute;
+  left: 0;
+  top: 5px;
+  color: #28a745;
+  /* SWK Green for icons */
+  font-size: 1rem;
+}
+
+.who-we-are-page .content-section h3+ul li::before {
+  content: "\f105";
+  /* Font Awesome angle-right for sub-list items, or choose another */
+}
+
+.who-we-are-page .content-section strong {
+  color: #333;
+  font-weight: 600;
+}
+
+/* Responsive adjustments for Who We Are page */
+@media (max-width: 768px) {
+  .who-we-are-page .page-header h1 {
+    font-size: 2.2rem;
+  }
+
+  .who-we-are-page .content-section {
+    padding: 2rem 1.5rem;
+  }
+
+  .who-we-are-page .content-section h2 {
+    font-size: 1.8rem;
+  }
+
+  .who-we-are-page .content-section h3 {
+    font-size: 1.3rem;
+  }
+
+  .who-we-are-page .content-section p,
+  .who-we-are-page .content-section ul li {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .who-we-are-page .page-header {
+    padding: 2rem 1rem;
+  }
+
+  .who-we-are-page .page-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .who-we-are-page .content-section {
+    padding: 1.5rem 1rem;
+  }
+
+  .who-we-are-page .content-section ul li {
+    padding-left: 1.5rem;
+  }
+
+  .who-we-are-page .content-section ul li::before {
+    top: 3px;
+  }
 }

@@ -20,12 +20,20 @@
         </div>
         <div class="nav-links">
             <a class="text-black" href="index.html">Home</a>
-            <a class="text-black active" href="about.us.html">About Us</a>
-            <a class="text-black" href="programs.html">Programs</a>
+            <div class="nav-item dropdown">
+                <a class="text-black dropdown-toggle" href="about.us.html" id="aboutLink">About <i
+                        class="fas fa-caret-down"></i></a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="who-we-are.html">Who We Are</a>
+                    <a class="dropdown-item" href="meet-the-team.html">Meet The Team</a>
+                </div>
+            </div>
+            <a class="text-black" href="programs.html">Our Work</a>
+            <a class="text-black" href="resources.html">Resources</a>
             <a class="text-black" href="get-involved.html">Get Involved</a>
             <a class="text-black" href="contact.html">Contact</a>
         </div>
-        <button class="make-donation" id="donateBtn">Make A Donation</button>
+        <button class="make-donation" id="donateBtn">Partner With Us</button>
     </nav>
 
     <!-- Donation Modal -->
@@ -46,7 +54,38 @@
                 <label for="message">Message (Optional)</label>
                 <textarea id="message" name="message" placeholder="Your message.."></textarea>
 
-                <button type="submit" class="submit-donation">Donate</button>
+                <fieldset class="donation-medium-fieldset">
+                    <legend>Choose Donation Medium</legend>
+                    <div class="radio-group">
+                        <input type="radio" id="bankTransferAbout" name="donationMediumAbout" value="bank">
+                        <label for="bankTransferAbout">Bank Transfer</label>
+                    </div>
+                    <div class="radio-group">
+                        <input type="radio" id="mobileMoneyAbout" name="donationMediumAbout" value="momo">
+                        <label for="mobileMoneyAbout">Mobile Money</label>
+                    </div>
+                </fieldset>
+
+                <div id="accountDetailsAbout" class="account-details-container" style="display: none;">
+                    <h4>Please use the details below to complete your donation:</h4>
+                    <div id="bankDetailsAbout" class="details-set" style="display: none;">
+                        <p><strong>Bank Name:</strong> YOUR BANK NAME</p>
+                        <p><strong>Account Name:</strong> YOUR ACCOUNT NAME</p>
+                        <p><strong>Account Number:</strong> YOUR BANK ACCOUNT NUMBER</p>
+                        <p><strong>Branch:</strong> YOUR BANK BRANCH</p>
+                        <p><strong>Swift Code (for international transfers):</strong> YOUR SWIFT CODE (Optional)</p>
+                    </div>
+                    <div id="momoDetailsAbout" class="details-set" style="display: none;">
+                        <p><strong>Network:</strong> YOUR MOBILE MONEY NETWORK (e.g., MTN, Vodafone, AirtelTigo)</p>
+                        <p><strong>Registered Name:</strong> YOUR REGISTERED MOBILE MONEY NAME</p>
+                        <p><strong>Number:</strong> YOUR MOBILE MONEY NUMBER</p>
+                        <p><strong>Reference:</strong> Please use your name as the reference.</p>
+                    </div>
+                </div>
+
+                <div id="formResponseMessageAbout" class="form-message-modal"></div>
+
+                <button type="submit" class="submit-donation">Proceed with Donation</button>
             </form>
         </div>
     </div>
@@ -73,6 +112,56 @@
                 <p>A Ghana where empowered and engaged youth are driving sustainable development,
                     contributing to thriving communities, and shaping a better future for themselves and their
                     nation.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="meet-the-team">
+        <div class="container">
+            <h2>Meet the Team</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="team-member-img">
+                        <img src="placeholder-image.jpg" alt="Frank Koomson">
+                    </div>
+                    <h3>Frank Koomson</h3>
+                    <p>Founder</p>
+                </div>
+                <div class="team-member">
+                    <div class="team-member-img">
+                        <img src="placeholder-image.jpg" alt="Ben Brown">
+                    </div>
+                    <h3>Ben Brown</h3>
+                    <p>Co-Founder</p>
+                </div>
+                <div class="team-member">
+                    <div class="team-member-img">
+                        <img src="placeholder-image.jpg" alt="Doreen Baidoo">
+                    </div>
+                    <h3>Doreen Baidoo</h3>
+                    <p>Secretary</p>
+                </div>
+                <div class="team-member">
+                    <div class="team-member-img">
+                        <img src="placeholder-image.jpg" alt="Ernestina Gyamfi">
+                    </div>
+                    <h3>Ernestina Gyamfi</h3>
+                    <p>Programs and Project Coordinator</p>
+                </div>
+                <div class="team-member">
+                    <div class="team-member-img">
+                        <img src="placeholder-image.jpg" alt="Christiana Akotowaa Owiredu">
+                    </div>
+                    <h3>Christiana Akotowaa Owiredu</h3>
+                    <p>Finance Officer</p>
+                </div>
+                <div class="team-member">
+                    <div class="team-member-img">
+                        <img src="placeholder-image.jpg" alt="Jessica Asamoah">
+                    </div>
+                    <h3>Jessica Asamoah</h3>
+                    <p>Media and Communications Officer</p>
+                </div>
             </div>
         </div>
     </section>

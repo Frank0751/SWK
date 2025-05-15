@@ -24,8 +24,15 @@ window.onclick = function (event) {
     }
 };
 
+// Get Partner With Us button from hero section
+var partnerUsHeroBtn = document.getElementById("partnerUsHeroBtn");
 
-
+// Listen for Partner With Us button click to open modal
+if (partnerUsHeroBtn) { // Check if the button exists on the page
+    partnerUsHeroBtn.onclick = function () {
+        modal.style.display = "block";
+    };
+}
 
 document.querySelector("form").addEventListener("submit", function (e) {
     const email = document.querySelector('input[type="email"]').value;
@@ -34,7 +41,6 @@ document.querySelector("form").addEventListener("submit", function (e) {
         alert("Please enter a valid email address.");
     }
 });
-
 
 document.querySelectorAll('.gallery-item img').forEach(item => {
     item.addEventListener('click', function () {
@@ -56,37 +62,125 @@ const goalAmount = 10000;
 function updateProgressBar() {
     const percentage = (totalRaised / goalAmount) * 100;
     progressBar.style.width = `${Math.min(percentage, 100)}%`;
-    progressText.textContent = `$${totalRaised}`;
-    raisedAmount.textContent = `$${totalRaised}`;
-    donorCount.textContent = totalDonors;
+    if (progressText) {
+        progressText.textContent = `$${totalRaised.toLocaleString()}`;
+    }
+    if (raisedAmount) {
+        raisedAmount.textContent = `$${totalRaised.toLocaleString()}`;
+    }
+    if (donorCount) {
+        donorCount.textContent = totalDonors;
+    }
 }
 
-if (donationForm) {
-    donationForm.addEventListener('submit', function (e) {
+// Function to handle donation medium change and display account details
+function handleDonationMediumChange(mediumValue, detailsContainerId, bankDetailsId, momoDetailsId) {
+    const accountDetailsContainer = document.getElementById(detailsContainerId);
+    const bankDetails = document.getElementById(bankDetailsId);
+    const momoDetails = document.getElementById(momoDetailsId);
+
+    if (!accountDetailsContainer || !bankDetails || !momoDetails) return;
+
+    if (mediumValue) {
+        accountDetailsContainer.style.display = 'block';
+        if (mediumValue === 'bank') {
+            bankDetails.style.display = 'block';
+            momoDetails.style.display = 'none';
+        } else if (mediumValue === 'momo') {
+            bankDetails.style.display = 'none';
+            momoDetails.style.display = 'block';
+        } else {
+            bankDetails.style.display = 'none';
+            momoDetails.style.display = 'none';
+            accountDetailsContainer.style.display = 'none';
+        }
+    } else {
+        accountDetailsContainer.style.display = 'none';
+        bankDetails.style.display = 'none';
+        momoDetails.style.display = 'none';
+    }
+}
+
+// Setup for the main donation form (index.html)
+const mainDonationForm = document.getElementById('donationForm');
+if (mainDonationForm) {
+    const donationMediumRadios = mainDonationForm.querySelectorAll('input[name="donationMedium"]');
+    donationMediumRadios.forEach(radio => {
+        radio.addEventListener('change', function () {
+            handleDonationMediumChange(this.value, 'accountDetails', 'bankDetails', 'momoDetails');
+        });
+    });
+
+    mainDonationForm.addEventListener('submit', function (e) {
         e.preventDefault();
-        const amount = parseFloat(this.querySelector('input[type="number"]').value);
+        const selectedMedium = mainDonationForm.querySelector('input[name="donationMedium"]:checked');
+        const formMessageDiv = document.getElementById('formResponseMessage');
+        const amount = parseFloat(this.querySelector('input[name="amount"]').value);
+
+        if (!selectedMedium) {
+            formMessageDiv.textContent = 'Please select a donation medium.';
+            formMessageDiv.className = 'form-message-modal error';
+            formMessageDiv.style.display = 'block';
+            return;
+        }
+
+        // If amount is valid, update progress bar (optional, if you want to track pledges)
         if (amount > 0) {
             totalRaised += amount;
             totalDonors++;
             updateProgressBar();
-            this.reset();
-
-            // Show success message
-            const successMessage = document.createElement('div');
-            successMessage.className = 'donation-success';
-            successMessage.textContent = `Thank you for your donation of $${amount}!`;
-            this.parentNode.insertBefore(successMessage, this.nextSibling);
-
-            // Remove success message after 3 seconds
-            setTimeout(() => {
-                successMessage.remove();
-            }, 3000);
         }
+
+        formMessageDiv.textContent = 'Thank you for your pledge! Please proceed with the manual transfer using the details provided.';
+        formMessageDiv.className = 'form-message-modal success';
+        formMessageDiv.style.display = 'block';
+        // Optionally, you can reset parts of the form or hide account details after submission
+        // setTimeout(() => { 
+        //     formMessageDiv.style.display = 'none'; 
+        //     mainDonationForm.reset(); 
+        //     handleDonationMediumChange(null, 'accountDetails', 'bankDetails', 'momoDetails');
+        // }, 7000);
     });
 }
 
-// Initialize progress bar
-updateProgressBar();
+// Setup for the About Us page donation form (about.us.html)
+const aboutDonationForm = document.getElementById('donationFormAbout'); // Assuming form ID is donationFormAbout
+if (aboutDonationForm) {
+    const donationMediumRadiosAbout = aboutDonationForm.querySelectorAll('input[name="donationMediumAbout"]');
+    donationMediumRadiosAbout.forEach(radio => {
+        radio.addEventListener('change', function () {
+            handleDonationMediumChange(this.value, 'accountDetailsAbout', 'bankDetailsAbout', 'momoDetailsAbout');
+        });
+    });
+
+    aboutDonationForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const selectedMediumAbout = aboutDonationForm.querySelector('input[name="donationMediumAbout"]:checked');
+        const formMessageDivAbout = document.getElementById('formResponseMessageAbout');
+        const amountAbout = parseFloat(this.querySelector('input[name="amount"]').value);
+
+        if (!selectedMediumAbout) {
+            formMessageDivAbout.textContent = 'Please select a donation medium.';
+            formMessageDivAbout.className = 'form-message-modal error';
+            formMessageDivAbout.style.display = 'block';
+            return;
+        }
+
+        // If amount is valid, update progress bar (optional, if you want to track pledges)
+        // Note: This assumes totalRaised, totalDonors, updateProgressBar are globally accessible
+        // and you want the about page donations to contribute to the same progress bar.
+        // If not, you might need a separate progress tracking for the about page.
+        if (amountAbout > 0) {
+            totalRaised += amountAbout;
+            totalDonors++;
+            updateProgressBar();
+        }
+
+        formMessageDivAbout.textContent = 'Thank you for your pledge! Please proceed with the manual transfer using the details provided.';
+        formMessageDivAbout.className = 'form-message-modal success';
+        formMessageDivAbout.style.display = 'block';
+    });
+}
 
 // Interactive Quiz or Poll
 document.querySelector('.quiz form').onsubmit = function (event) {
@@ -161,4 +255,26 @@ document.addEventListener('click', (e) => {
 })();
 
 // Send email using EmailJS
-emailjs.send('service_unjb7s8', 'template_s13cq2r', formData);
+// emailjs.send('service_unjb7s8', 'template_s13cq2r', formData); // This line seems to be a leftover, ensure it's in the correct scope or removed if not used globally.
+
+// Scroll Animation Logic
+document.addEventListener("DOMContentLoaded", function () {
+    const animatedSections = document.querySelectorAll('.scroll-animate');
+
+    if (animatedSections.length > 0) {
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target); // Stop observing after animation
+                }
+            });
+        }, { threshold: 0.1 }); // Trigger when 10% of the element is visible
+
+        animatedSections.forEach(section => {
+            observer.observe(section);
+        });
+    }
+});
+
+/* Ensure no scroll animation logic (Intersection Observer) exists beyond this point unless it was pre-existing */
