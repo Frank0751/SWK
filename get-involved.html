@@ -10,15 +10,19 @@
 </head>
 <body>
     <nav class="glass">
-        <a href="index.html" class="logo"><img src="./Images/SWK LOGO.png" alt="SWK Logo"></a>
-        <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="programs.html">Programs</a>
-            <a href="resources.html">Resources</a>
-            <a href="get-involved.html">Get Involved</a>
-            <a href="contact.html">Contact</a>
+        <a href="index.html" class="logo"><img src="./Images/SWK LOGO.png" alt="logo" /></a>
+        <div class="menu-toggle">
+            <i class="fas fa-bars"></i>
         </div>
+        <div class="nav-links">
+            <a class="text-black" href="index.html">Home</a>
+            <a class="text-black" href="about.html">About</a>
+            <a class="text-black" href="programs.html">Our Work</a>
+            <a class="text-black" href="resources.html">Resources</a>
+            <a class="text-black" href="get-involved.html">Get Involved</a>
+            <a class="text-black" href="contact.html">Contact</a>
+        </div>
+        <button class="nav-button" id="partnerUsNavBtn">Partner With Us</button>
     </nav>
 
     <main>
@@ -139,27 +143,208 @@
         </section>
     </main>
 
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Contact Us</h3>
-                <p>Email: contact@swk.org</p>
-                <p>Phone: +233 XXX XXX XXXX</p>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-about">
+                <h3>SWK</h3>
+                <p>
+                    SWK is a youth-driven non-profit in Ghana that empowers young people to lead sustainable change. Through
+                    education and collaboration with local authorities.
+                </p>
             </div>
-            <div class="footer-section">
-                <h3>Follow Us</h3>
+
+            <div class="footer-nav">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="programs.html">Our Work</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="get-involved.html">Get Involved</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-social">
+                <h4>Follow Us</h4>
                 <div class="social-links">
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.linkedin.com/company/sustainability-with-koomson/?viewAsMember=true" target="_blank"><i
+                            class="fab fa-linkedin"></i></a>
+                    <a href="https://x.com/FrankKoomson20" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href=" https://frank0751.github.io/Portfolio-for-Demo/" target="_blank"><i class="fab fa-github"></i></a>
                 </div>
+            </div>
+
+            <div class="newsletter">
+                <h2>Stay Updated</h2>
+                <form action="/subscribe" method="POST">
+                    <input type="email" name="email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+
+            <div class="footer-contact">
+                <h4>Contact Info</h4>
+                <p>Email: <a href="mailto:sustainabilitywithkoomson@gmail.com">sustainabilitywithkoomson@gmail.com</a></p>
+                <p>Location: Accra, Ghana</p>
             </div>
         </div>
         <div class="footer-bottom">
             <p>&copy; 2025 Sustainability with Koomson. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- Forms -->
+    <div id="volunteer-form" class="modal-form">
+        <div class="form-container">
+            <h2>Become a Volunteer</h2>
+            <form id="volunteer-signup" class="swk-form">
+                <div class="form-group">
+                    <label for="volunteer-name">Full Name</label>
+                    <input type="text" id="volunteer-name" name="volunteer-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="volunteer-email">Email Address</label>
+                    <input type="email" id="volunteer-email" name="volunteer-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="volunteer-phone">Phone Number</label>
+                    <input type="tel" id="volunteer-phone" name="volunteer-phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="volunteer-region">Region/Location</label>
+                    <input type="text" id="volunteer-region" name="volunteer-region" required>
+                </div>
+                <div class="form-group">
+                    <label>Area of Interest</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="interest" value="environmental"> Environmental Projects</label>
+                        <label><input type="checkbox" name="interest" value="teaching"> Teaching</label>
+                        <label><input type="checkbox" name="interest" value="events"> Event Support</label>
+                        <label><input type="checkbox" name="interest" value="community"> Community Mobilization</label>
+                        <label><input type="checkbox" name="interest" value="other"> Other</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="volunteer-availability">Availability</label>
+                    <select id="volunteer-availability" name="volunteer-availability" required>
+                        <option value="">Select your availability</option>
+                        <option value="weekdays">Weekdays</option>
+                        <option value="weekends">Weekends</option>
+                        <option value="both">Both</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="volunteer-motivation">Why do you want to volunteer?</label>
+                    <textarea id="volunteer-motivation" name="volunteer-motivation" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Join the Movement</button>
+                <div class="form-message"></div>
+            </form>
+        </div>
+    </div>
+
+    <div id="donation-form" class="modal-form">
+        <div class="form-container">
+            <h2>Make a Donation</h2>
+            <form id="donation-form" class="swk-form">
+                <div class="form-group">
+                    <label for="donor-name">Full Name</label>
+                    <input type="text" id="donor-name" name="donor-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="donor-email">Email Address</label>
+                    <input type="email" id="donor-email" name="donor-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="donation-amount">Amount to Donate</label>
+                    <div class="amount-options">
+                        <button type="button" class="amount-btn">GHS 20</button>
+                        <button type="button" class="amount-btn">GHS 50</button>
+                        <button type="button" class="amount-btn">GHS 100</button>
+                        <div class="custom-amount">
+                            <input type="number" id="custom-amount" name="custom-amount" placeholder="Custom Amount">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="donation-purpose">Donation Purpose</label>
+                    <select id="donation-purpose" name="donation-purpose" required>
+                        <option value="">Select purpose</option>
+                        <option value="youth-training">Youth Training</option>
+                        <option value="tree-planting">Tree Planting</option>
+                        <option value="general">General Support</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="payment-method">Payment Method</label>
+                    <select id="payment-method" name="payment-method" required>
+                        <option value="">Select payment method</option>
+                        <option value="bank">Bank Transfer</option>
+                        <option value="mobile-money">Mobile Money</option>
+                        <option value="credit-card">Credit Card</option>
+                    </select>
+                </div>
+                <button type="submit" class="submit-btn">Make a Donation</button>
+                <div class="form-message"></div>
+            </form>
+        </div>
+    </div>
+
+    <div id="partnership-form" class="modal-form">
+        <div class="form-container">
+            <h2>Partner With Us</h2>
+            <form id="partnership-form" class="swk-form">
+                <div class="form-group">
+                    <label for="partner-org">Organization Name</label>
+                    <input type="text" id="partner-org" name="partner-org" required>
+                </div>
+                <div class="form-group">
+                    <label for="partner-name">Contact Person</label>
+                    <input type="text" id="partner-name" name="partner-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="partner-email">Email Address</label>
+                    <input type="email" id="partner-email" name="partner-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="partner-phone">Phone Number</label>
+                    <input type="tel" id="partner-phone" name="partner-phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="partner-type">Organization Type</label>
+                    <select id="partner-type" name="partner-type" required>
+                        <option value="">Select type</option>
+                        <option value="ngo">NGO</option>
+                        <option value="gov">Government Agency</option>
+                        <option value="school">School</option>
+                        <option value="business">Business</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="partner-region">Region/Location</label>
+                    <input type="text" id="partner-region" name="partner-region" required>
+                </div>
+                <div class="form-group">
+                    <label>Type of Partnership</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="partnership-type" value="funding"> Funding</label>
+                        <label><input type="checkbox" name="partnership-type" value="events"> Co-hosting Events</label>
+                        <label><input type="checkbox" name="partnership-type" value="technical"> Technical Support</label>
+                        <label><input type="checkbox" name="partnership-type" value="community"> Community Projects</label>
+                        <label><input type="checkbox" name="partnership-type" value="other"> Other</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="partner-message">Message/Proposal</label>
+                    <textarea id="partner-message" name="partner-message" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Partnership Request</button>
+                <div class="form-message"></div>
+            </form>
+        </div>
+    </div>
 
     <script src="./script.js"></script>
 </body>

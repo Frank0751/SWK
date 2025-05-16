@@ -1,0 +1,153 @@
+<!-- Volunteer Sign-Up Form -->
+<div id="volunteer-form" class="modal-form">
+    <div class="form-container">
+        <h2>Become a Volunteer</h2>
+        <form id="volunteer-signup" class="swk-form">
+            <div class="form-group">
+                <label for="volunteer-name">Full Name</label>
+                <input type="text" id="volunteer-name" name="volunteer-name" required>
+            </div>
+            <div class="form-group">
+                <label for="volunteer-email">Email Address</label>
+                <input type="email" id="volunteer-email" name="volunteer-email" required>
+            </div>
+            <div class="form-group">
+                <label for="volunteer-phone">Phone Number</label>
+                <input type="tel" id="volunteer-phone" name="volunteer-phone" required>
+            </div>
+            <div class="form-group">
+                <label for="volunteer-region">Region/Location</label>
+                <input type="text" id="volunteer-region" name="volunteer-region" required>
+            </div>
+            <div class="form-group">
+                <label>Area of Interest</label>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" name="interest" value="environmental"> Environmental Projects</label>
+                    <label><input type="checkbox" name="interest" value="teaching"> Teaching</label>
+                    <label><input type="checkbox" name="interest" value="events"> Event Support</label>
+                    <label><input type="checkbox" name="interest" value="community"> Community Mobilization</label>
+                    <label><input type="checkbox" name="interest" value="other"> Other</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="volunteer-availability">Availability</label>
+                <select id="volunteer-availability" name="volunteer-availability" required>
+                    <option value="">Select your availability</option>
+                    <option value="weekdays">Weekdays</option>
+                    <option value="weekends">Weekends</option>
+                    <option value="both">Both</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="volunteer-motivation">Why do you want to volunteer?</label>
+                <textarea id="volunteer-motivation" name="volunteer-motivation" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Join the Movement</button>
+            <div class="form-message"></div>
+        </form>
+    </div>
+</div>
+
+<!-- Donation Form -->
+<div id="donation-form" class="modal-form">
+    <div class="form-container">
+        <h2>Make a Donation</h2>
+        <form id="donation-form" class="swk-form">
+            <div class="form-group">
+                <label for="donor-name">Full Name</label>
+                <input type="text" id="donor-name" name="donor-name" required>
+            </div>
+            <div class="form-group">
+                <label for="donor-email">Email Address</label>
+                <input type="email" id="donor-email" name="donor-email" required>
+            </div>
+            <div class="form-group">
+                <label for="donation-amount">Amount to Donate</label>
+                <div class="amount-options">
+                    <button type="button" class="amount-btn">GHS 20</button>
+                    <button type="button" class="amount-btn">GHS 50</button>
+                    <button type="button" class="amount-btn">GHS 100</button>
+                    <div class="custom-amount">
+                        <input type="number" id="custom-amount" name="custom-amount" placeholder="Custom Amount">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="donation-purpose">Donation Purpose</label>
+                <select id="donation-purpose" name="donation-purpose" required>
+                    <option value="">Select purpose</option>
+                    <option value="youth-training">Youth Training</option>
+                    <option value="tree-planting">Tree Planting</option>
+                    <option value="general">General Support</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="payment-method">Payment Method</label>
+                <select id="payment-method" name="payment-method" required>
+                    <option value="">Select payment method</option>
+                    <option value="bank">Bank Transfer</option>
+                    <option value="mobile-money">Mobile Money</option>
+                    <option value="credit-card">Credit Card</option>
+                </select>
+            </div>
+            <button type="submit" class="submit-btn">Make a Donation</button>
+            <div class="form-message"></div>
+        </form>
+    </div>
+</div>
+
+<!-- Partnership Form -->
+<div id="partnership-form" class="modal-form">
+    <div class="form-container">
+        <h2>Partner With Us</h2>
+        <form id="partnership-form" class="swk-form">
+            <div class="form-group">
+                <label for="partner-org">Organization Name</label>
+                <input type="text" id="partner-org" name="partner-org" required>
+            </div>
+            <div class="form-group">
+                <label for="partner-name">Contact Person</label>
+                <input type="text" id="partner-name" name="partner-name" required>
+            </div>
+            <div class="form-group">
+                <label for="partner-email">Email Address</label>
+                <input type="email" id="partner-email" name="partner-email" required>
+            </div>
+            <div class="form-group">
+                <label for="partner-phone">Phone Number</label>
+                <input type="tel" id="partner-phone" name="partner-phone" required>
+            </div>
+            <div class="form-group">
+                <label for="partner-type">Organization Type</label>
+                <select id="partner-type" name="partner-type" required>
+                    <option value="">Select type</option>
+                    <option value="ngo">NGO</option>
+                    <option value="gov">Government Agency</option>
+                    <option value="school">School</option>
+                    <option value="business">Business</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="partner-region">Region/Location</label>
+                <input type="text" id="partner-region" name="partner-region" required>
+            </div>
+            <div class="form-group">
+                <label>Type of Partnership</label>
+                <div class="checkbox-group">
+                    <label><input type="checkbox" name="partnership-type" value="funding"> Funding</label>
+                    <label><input type="checkbox" name="partnership-type" value="events"> Co-hosting Events</label>
+                    <label><input type="checkbox" name="partnership-type" value="technical"> Technical Support</label>
+                    <label><input type="checkbox" name="partnership-type" value="community"> Community Projects</label>
+                    <label><input type="checkbox" name="partnership-type" value="other"> Other</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="partner-message">Message/Proposal</label>
+                <textarea id="partner-message" name="partner-message" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Send Partnership Request</button>
+            <div class="form-message"></div>
+        </form>
+    </div>
+</div>

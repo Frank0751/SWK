@@ -1,57 +1,249 @@
-// Get modal element
-var modal = document.getElementById("donationModal");
-
-// Get open modal button
-var donateBtn = document.getElementById("donateBtn");
-
-// Get close button
-var closeBtn = document.getElementsByClassName("close")[0];
-
-// Listen for open click
-donateBtn.onclick = function () {
-    modal.style.display = "block";
+// Form handling
+// Form modal handling
+const forms = {
+    volunteer: document.getElementById('volunteer-form'),
+    donation: document.getElementById('donation-form'),
+    partnership: document.getElementById('partnership-form')
 };
 
-// Listen for close click
-closeBtn.onclick = function () {
-    modal.style.display = "none";
+// Initialize form triggers
+const formTriggers = {
+    volunteer: document.querySelectorAll('[href="#volunteer"], [href="#volunteer"]'),
+    donation: document.querySelectorAll('[href="#donate"], [href="#donate"]'),
+    partnership: document.querySelectorAll('[href="#partner"], [href="#partner"]')
 };
 
-// Close if outside click
-window.onclick = function (event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-};
-
-// Get Partner With Us button from hero section
-var partnerUsHeroBtn = document.getElementById("partnerUsHeroBtn");
-
-// Listen for Partner With Us button click to open modal
-if (partnerUsHeroBtn) { // Check if the button exists on the page
-    partnerUsHeroBtn.onclick = function () {
-        modal.style.display = "block";
-    };
-}
-
-document.querySelector("form").addEventListener("submit", function (e) {
-    const email = document.querySelector('input[type="email"]').value;
-    if (!email) {
+// Add click handlers for form triggers
+formTriggers.volunteer.forEach(link => {
+    link.addEventListener('click', (e) => {
         e.preventDefault();
-        alert("Please enter a valid email address.");
-    }
-});
-
-document.querySelectorAll('.gallery-item img').forEach(item => {
-    item.addEventListener('click', function () {
-        // Open modal or larger view of image
+        openForm('volunteer');
     });
 });
 
-// Donation Progress
-const donationForm = document.querySelector('.donation-form');
-const progressBar = document.querySelector('.progress-bar');
-const progressText = document.querySelector('.progress-text');
+formTriggers.donation.forEach(link => {
+    link.addEventListener('click', (e) => {
+        e.preventDefault();
+        openForm('donation');
+    });
+});
+
+formTriggers.partnership.forEach(link => {
+    link.addEventListener('click', (e) => {
+        e.preventDefault();
+        openForm('partnership');
+    });
+});
+
+// Add click handlers for all Partner With Us buttons
+const partnerButtons = document.querySelectorAll('.nav-button, .cta-btn[href="#partner"], .card-btn[href="#partner"], [href="#partner"]');
+
+partnerButtons.forEach(button => {
+    button.addEventListener('click', (e) => {
+        e.preventDefault();
+        openForm('partnership');
+    });
+});
+
+// Add click handlers for all other buttons
+const formButtons = {
+    volunteer: document.querySelectorAll('.cta-btn[href="#volunteer"], .card-btn[href="#volunteer"], [href="#volunteer"]'),
+    donation: document.querySelectorAll('.cta-btn[href="#donate"], .card-btn[href="#donate"], [href="#donate"]')
+};
+
+formButtons.volunteer.forEach(button => {
+    button.addEventListener('click', (e) => {
+        e.preventDefault();
+        openForm('volunteer');
+    });
+});
+
+formButtons.donation.forEach(button => {
+    button.addEventListener('click', (e) => {
+        e.preventDefault();
+        openForm('donation');
+    });
+});
+
+// Add smooth transitions for form openings
+function openForm(formType) {
+    const form = forms[formType];
+    if (form) {
+        form.style.display = 'flex';
+        form.style.opacity = '0';
+        form.style.transform = 'scale(0.95)';
+        
+        setTimeout(() => {
+            form.style.opacity = '1';
+            form.style.transform = 'scale(1)';
+            document.body.style.overflow = 'hidden';
+        }, 50);
+    }
+}
+
+// Add smooth transitions for form closures
+function closeForm(formType) {
+    const form = forms[formType];
+    if (form) {
+        form.style.opacity = '0';
+        form.style.transform = 'scale(0.95)';
+        
+        setTimeout(() => {
+            form.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }, 300);
+    }
+}
+
+// Open form function
+function openForm(formType) {
+    forms[formType].style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+}
+
+// Close forms when clicking outside
+forms.volunteer.addEventListener('click', (e) => {
+    if (e.target === forms.volunteer) {
+        closeForm('volunteer');
+    }
+});
+
+forms.donation.addEventListener('click', (e) => {
+    if (e.target === forms.donation) {
+        closeForm('donation');
+    }
+});
+
+forms.partnership.addEventListener('click', (e) => {
+    if (e.target === forms.partnership) {
+        closeForm('partnership');
+    }
+});
+
+// Close form function
+function closeForm(formType) {
+    forms[formType].style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
+
+// Form submission handling
+const formMessages = {
+    volunteer: {
+        success: "Thanks for signing up! We'll reach out soon.",
+        error: "Please fill in all required fields."
+    },
+    donation: {
+        success: "Thank you for your generous support. Together, we're building a sustainable future.",
+        error: "Please fill in all required fields."
+    },
+    partnership: {
+        success: "Thank you for reaching out! Our team will connect with you shortly to explore next steps.",
+        error: "Please fill in all required fields."
+    }
+};
+
+// Volunteer Form
+const volunteerForm = document.getElementById('volunteer-signup');
+if (volunteerForm) {
+    volunteerForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const formData = new FormData(volunteerForm);
+        if (validateForm(formData)) {
+            showFormMessage('volunteer', 'success');
+            volunteerForm.reset();
+            closeForm('volunteer');
+        } else {
+            showFormMessage('volunteer', 'error');
+        }
+    });
+}
+
+// Donation Form
+const donationForm = document.getElementById('donation-form');
+if (donationForm) {
+    // Handle amount selection
+    const amountBtns = document.querySelectorAll('.amount-btn');
+    amountBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            amountBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            document.getElementById('custom-amount').value = '';
+        });
+    });
+
+    donationForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const formData = new FormData(donationForm);
+        if (validateForm(formData)) {
+            showFormMessage('donation', 'success');
+            donationForm.reset();
+            closeForm('donation');
+        } else {
+            showFormMessage('donation', 'error');
+        }
+    });
+}
+
+// Partnership Form
+const partnershipForm = document.getElementById('partnership-form');
+if (partnershipForm) {
+    partnershipForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const formData = new FormData(partnershipForm);
+        if (validateForm(formData)) {
+            showFormMessage('partnership', 'success');
+            partnershipForm.reset();
+            closeForm('partnership');
+        } else {
+            showFormMessage('partnership', 'error');
+        }
+    });
+}
+
+// Form validation
+function validateForm(formData) {
+    for (let pair of formData.entries()) {
+        if (pair[1] === '' || pair[1] === null) {
+            return false;
+        }
+    }
+    return true;
+}
+
+// Show form message
+function showFormMessage(formType, type) {
+    const message = forms[formType].querySelector('.form-message');
+    message.textContent = formMessages[formType][type];
+    message.className = `form-message ${type}`;
+    message.style.display = 'block';
+    setTimeout(() => {
+        message.style.display = 'none';
+    }, 5000);
+}
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+
+// Add smooth scroll to page load if hash present
+if (window.location.hash) {
+    setTimeout(() => {
+        document.querySelector(window.location.hash).scrollIntoView({
+            behavior: 'smooth'
+        });
+    }, 100);
+}
+// Remove duplicate variable declarations
+// These variables are not being used, so we can safely remove them
+// const donationForm = document.querySelector('.donation-form');
+// const progressBar = document.querySelector('.progress-bar');
+// const progressText = document.querySelector('.progress-text');
 const raisedAmount = document.querySelector('.donation-stats .donation-stat:first-child h3');
 const donorCount = document.querySelector('.donation-stats .donation-stat:last-child h3');
 
