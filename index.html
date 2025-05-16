@@ -32,7 +32,7 @@
       <a class="text-black" href="get-involved.html">Get Involved</a>
       <a class="text-black" href="contact.html">Contact</a>
     </div>
-    <button class="make-donation" id="donateBtn">Partner With Us</button>
+    <button class="nav-button" id="partnerUsNavBtn">Partner With Us</button>
   </nav>
 
   <!-- Donation Modal -->
@@ -97,7 +97,7 @@
       </p>
       <div class="hero-buttons-container">
         <a href="who-we-are.html" class="hero-button about-us-btn">About Us</a>
-        <button class="hero-button partner-us-btn" id="partnerUsHeroBtn">Partner With Us</button>
+        <a href="get-involved.html" class="hero-button get-involved-btn">Get Involved</a>
       </div>
       <div class="scroll-indicator">
         <div class="scroll-arrow"></div>
@@ -295,29 +295,32 @@
   </section>
 
   <section class="donation-progress">
-    <h2>Help Us Reach Our Goal</h2>
-    <div class="progress-container">
-      <div class="progress-bar" style="width: 0%;">
-        <span class="progress-text">$0</span>
+    <div class="donation-card">
+      <h2>Help Us Reach Our Goal</h2>
+      <div class="progress-container">
+        <div class="progress-bar" style="width: 0%;">
+          <span class="progress-text">$0</span>
+        </div>
+        <div class="progress-labels">
+          <span class="start-label">$0</span>
+          <span class="end-label">$10,000</span>
+        </div>
       </div>
-      <div class="progress-labels">
-        <span class="start-label">$0</span>
-        <span class="end-label">$10,000</span>
+      <div class="donation-stats">
+        <div class="donation-stat">
+          <h3>$0</h3>
+          <p>Raised</p>
+        </div>
+        <div class="donation-stat">
+          <h3>$10,000</h3>
+          <p>Goal</p>
+        </div>
+        <div class="donation-stat">
+          <h3>0</h3>
+          <p>Donors</p>
+        </div>
       </div>
-    </div>
-    <div class="donation-stats">
-      <div class="donation-stat">
-        <h3>$0</h3>
-        <p>Raised</p>
-      </div>
-      <div class="donation-stat">
-        <h3>$10,000</h3>
-        <p>Goal</p>
-      </div>
-      <div class="donation-stat">
-        <h3>0</h3>
-        <p>Donors</p>
-      </div>
+      <button class="make-donation goal-donation-btn" id="goalDonateBtn">Partner With Us</button>
     </div>
   </section>
 
@@ -452,6 +455,52 @@
   </footer>
 
   <script src="./script.js"></script>
-</body>
+  <script>
+    // Get modal elements
+    const modal = document.getElementById('donationModal');
+    const navDonateBtn = document.querySelector('.nav-button');
+    const goalDonateBtn = document.querySelector('.goal-donation-btn');
+    const closeBtn = document.querySelector('.close');
+    const form = document.getElementById('donationForm');
 
+    // Open modal when either donation button is clicked
+    navDonateBtn.onclick = function() {
+      modal.style.display = 'block';
+    };
+
+    goalDonateBtn.onclick = function() {
+      modal.style.display = 'block';
+    };
+
+    // Open modal when any donation button is clicked
+    donateBtns.forEach(btn => {
+      btn.onclick = function() {
+        modal.style.display = 'block';
+      }
+    });
+
+    // Close modal when close button is clicked
+    closeBtn.onclick = function() {
+      modal.style.display = 'none';
+    }
+
+    // Close modal when clicking outside
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = 'none';
+      }
+    }
+
+    // Handle form submission
+    form.onsubmit = function(e) {
+      e.preventDefault();
+      const formData = new FormData(form);
+      console.log('Donation submitted:', Object.fromEntries(formData));
+      // Here you would typically send the data to your server
+      modal.style.display = 'none';
+      form.reset();
+      alert('Thank you for your donation!');
+    };
+  </script>
+  </body>
 </html>

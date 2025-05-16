@@ -1,22 +1,180 @@
-<nav class="glass">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resources - SWK</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+</head>
+
+<body>
+  <nav class="glass">
     <a href="index.html" class="logo"><img src="./Images/SWK LOGO.png" alt="logo" /></a>
     <div class="menu-toggle">
-        <i class="fas fa-bars"></i>
+      <i class="fas fa-bars"></i>
     </div>
     <div class="nav-links">
-        <a class="text-black" href="index.html">Home</a>
-        <div class="nav-item dropdown">
-            <a class="text-black dropdown-toggle" href="about.us.html" id="aboutLink">About <i
-                    class="fas fa-caret-down"></i></a>
-            <div class="dropdown-menu">
-                <a class="dropdown-item" href="who-we-are.html">Who We Are</a>
-                <a class="dropdown-item" href="meet-the-team.html">Meet The Team</a>
-            </div>
+      <a class="text-black" href="index.html">Home</a>
+      <div class="nav-item dropdown">
+        <a class="text-black dropdown-toggle" href="about.us.html" id="aboutLink">About <i
+                class="fas fa-caret-down"></i></a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="who-we-are.html">Who We Are</a>
+          <a class="dropdown-item" href="meet-the-team.html">Meet The Team</a>
         </div>
-        <a class="text-black" href="programs.html">Our Work</a>
-        <a class="text-black" href="resources.html">Resources</a>
-        <a class="text-black" href="get-involved.html">Get Involved</a>
-        <a class="text-black" href="contact.html">Contact</a>
+      </div>
+      <a class="text-black" href="programs.html">Our Work</a>
+      <a class="text-black" href="resources.html">Resources</a>
+      <a class="text-black" href="get-involved.html">Get Involved</a>
+      <a class="text-black" href="contact.html">Contact</a>
     </div>
     <button class="make-donation" id="donateBtn">Partner With Us</button>
-</nav>
+  </nav>
+
+  <main class="resources-page">
+    <section class="resources-hero">
+      <h1>Our Resources</h1>
+      <p>Access our collection of reports, guides, and tools for sustainable development and youth empowerment</p>
+    </section>
+
+    <section class="resource-filters">
+      <div class="container">
+        <div class="filter-group">
+          <select class="filter-select">
+            <option value="all">All Categories</option>
+            <option value="reports">Reports</option>
+            <option value="guides">Guides</option>
+            <option value="tools">Tools</option>
+            <option value="research">Research</option>
+          </select>
+          <select class="filter-select">
+            <option value="all">All Years</option>
+            <option value="2025">2025</option>
+            <option value="2024">2024</option>
+            <option value="2023">2023</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <section class="resource-grid">
+      <div class="container">
+        <div class="resource-card">
+          <div class="resource-image">
+            <img src="https://via.placeholder.com/300x200" alt="Youth Development Report 2025">
+          </div>
+          <div class="resource-content">
+            <h3>2025 Youth Development Report</h3>
+            <p class="resource-type">Report</p>
+            <p class="resource-date">May 2025</p>
+            <p class="resource-description">Comprehensive analysis of youth development initiatives and their impact on sustainable communities in Ghana.</p>
+            <div class="resource-actions">
+              <a href="#" class="download-btn">Download PDF</a>
+              <a href="#" class="read-more">Read Online</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="resource-card">
+          <div class="resource-image">
+            <img src="https://via.placeholder.com/300x200" alt="Sustainable Agriculture Guide">
+          </div>
+          <div class="resource-content">
+            <h3>Sustainable Agriculture Guide</h3>
+            <p class="resource-type">Guide</p>
+            <p class="resource-date">March 2025</p>
+            <p class="resource-description">Practical guide for young farmers on implementing sustainable agricultural practices and improving food security.</p>
+            <div class="resource-actions">
+              <a href="#" class="download-btn">Download PDF</a>
+              <a href="#" class="read-more">Read Online</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="resource-card">
+          <div class="resource-image">
+            <img src="https://via.placeholder.com/300x200" alt="Community Development Toolkit">
+          </div>
+          <div class="resource-content">
+            <h3>Community Development Toolkit</h3>
+            <p class="resource-type">Tool</p>
+            <p class="resource-date">January 2025</p>
+            <p class="resource-description">Step-by-step guide for youth-led community development initiatives and project management.</p>
+            <div class="resource-actions">
+              <a href="#" class="download-btn">Download PDF</a>
+              <a href="#" class="read-more">Read Online</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Add more resource cards as needed -->
+      </div>
+    </section>
+
+    <section class="resource-categories">
+      <div class="container">
+        <h2>Resource Categories</h2>
+        <div class="category-grid">
+          <div class="category-card">
+            <i class="fas fa-file-pdf"></i>
+            <h3>Reports</h3>
+            <p>Research findings and impact assessments</p>
+          </div>
+          <div class="category-card">
+            <i class="fas fa-book"></i>
+            <h3>Guides</h3>
+            <p>Practical resources and how-to manuals</p>
+          </div>
+          <div class="category-card">
+            <i class="fas fa-tools"></i>
+            <h3>Tools</h3>
+            <p>Implementation resources and templates</p>
+          </div>
+          <div class="category-card">
+            <i class="fas fa-flask"></i>
+            <h3>Research</h3>
+            <p>Academic studies and data analysis</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="subscribe-section">
+      <div class="container">
+        <h2>Stay Updated</h2>
+        <p>Subscribe to receive our latest resources and updates</p>
+        <form class="subscribe-form">
+          <input type="email" placeholder="Enter your email" required>
+          <button type="submit" class="subscribe-btn">Subscribe</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>Contact Us</h4>
+        <p>Email: info@swk.org.gh</p>
+        <p>Phone: +233 XXX XXX XXXX</p>
+      </div>
+      <div class="footer-section">
+        <h4>Follow Us</h4>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Sustainability with Koomson. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
