@@ -94,6 +94,13 @@ nav {
   background-color: rgba(76, 175, 80, 0.1);
 }
 
+.nav-links a:focus {
+  color: #4caf50; /* Match hover color */
+  background-color: rgba(76, 175, 80, 0.1); /* Match hover background */
+  outline: 2px solid #4caf50; /* Distinct focus outline */
+  outline-offset: 2px;
+}
+
 /* Resources Page Styles */
 .resources-page {
   padding: 80px 0;
@@ -146,6 +153,13 @@ nav {
 
 .filter-select:hover {
   border-color: #4caf50;
+}
+
+.filter-select:focus {
+  border-color: #4caf50; /* Match hover border */
+  outline: 2px solid #4caf50;
+  outline-offset: 1px;
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.3); /* Optional: subtle glow */
 }
 
 .resource-grid {
@@ -431,10 +445,6 @@ nav {
   color: #333;
   cursor: pointer;
   transition: all 0.3s ease;
-}
-
-.filter-select:hover {
-  border-color: #4caf50;
 }
 
 .resource-grid {
@@ -858,6 +868,17 @@ nav {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+.make-donation:focus {
+  outline: 2px solid white;
+  outline-offset: 2px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25); 
+}
+
+.make-donation:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
 .menu-toggle {
   display: none;
   cursor: pointer;
@@ -1084,16 +1105,25 @@ nav {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
+.hero-button:focus {
+  background: linear-gradient(75.7deg, rgb(28, 100, 28) 3.8%, rgb(80, 130, 15) 87.1%); /* Match hover or slightly different */
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.4), 0 4px 8px rgba(0, 0, 0, 0.15); /* Focus ring + existing hover shadow */
+  transform: translateY(-2px); /* Match hover */
+  outline: none; /* Prevent default browser outline if using box-shadow for focus */
+}
+
+.hero-button:active {
+  background: linear-gradient(75.7deg, rgb(20, 80, 20) 3.8%, rgb(70, 120, 10) 87.1%); /* Slightly darker/different for active */
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Reduced shadow for pressed state */
+}
+
 .hero-buttons-container {
   display: flex;
   gap: 20px;
   margin-top: 25px;
   justify-content: center;
   flex-wrap: wrap;
-}
-
-.hero-button.about-us-btn {
-  /* This button will use the base .hero-button style primarily */
 }
 
 .hero {
@@ -1771,6 +1801,19 @@ button.submit-donation:hover {
   background: linear-gradient(135deg, #45a049, #76c547);
 }
 
+/*
+.make-donation:focus {
+  outline: 2px solid white;
+  outline-offset: 2px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25); 
+}
+
+.make-donation:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+*/
+
 .goal-donation-btn {
   display: flex;
   align-items: center;
@@ -1800,25 +1843,66 @@ button.submit-donation:hover {
 
 /* Navigation Menu Button Styles */
 .nav-button {
-  display: inline-block;
-  padding: 10px 20px;
-  background: #4caf50;
+  background-color: #4caf50;
   color: white;
   border: none;
-  border-radius: 5px;
+  padding: 12px 24px;
+  border-radius: 30px;
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  text-transform: uppercase;
+  text-decoration: none;
+  display: inline-block;
+  line-height: 1;
   min-width: 120px;
   text-align: center;
 }
 
 .nav-button:hover {
-  background: #45a049;
+  background-color: #45a049;
   transform: translateY(-2px);
-  box-shadow: 0 3px 10px rgba(76, 175, 80, 0.2);
+  box-shadow: 0 4px 15px rgba(76, 175, 80, 0.2);
+}
+
+.nav-button:active {
+  transform: translateY(0);
+}
+
+/* Call to Action Button Styles */
+.cta-btn {
+  display: inline-block;
+  padding: 12px 25px;
+  background: linear-gradient(75.7deg, rgb(34, 126, 34) 3.8%, rgb(99, 162, 17) 87.1%);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  margin: 5px; /* Add some margin for spacing if multiple buttons are together */
+}
+
+.cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  background: linear-gradient(75.7deg, rgb(44, 136, 44) 3.8%, rgb(109, 172, 27) 87.1%); /* Slightly lighter green on hover */
+}
+
+.cta-btn:focus {
+  outline: 2px solid #227E22; /* Darker green outline */
+  outline-offset: 2px;
+  box-shadow: 0 0 0 3px rgba(34, 126, 34, 0.4), 0 4px 10px rgba(0,0,0,0.2); /* Focus ring + hover shadow */
+}
+
+.cta-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  background: linear-gradient(75.7deg, rgb(24, 116, 24) 3.8%, rgb(89, 152, 7) 87.1%); /* Slightly darker green on active */
 }
 
 /* Modal Styles */
@@ -2837,7 +2921,6 @@ section {
   padding: 2rem;
   display: flex;
   flex-direction: column;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .blog article:hover {
@@ -2896,6 +2979,15 @@ section {
 
   .blog article {
     padding: 1.5rem;
+  }
+
+  .blog article h3 {
+    font-size: 1.3rem;
+  }
+
+  .blog article a {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
   }
 }
 

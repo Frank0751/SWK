@@ -9,6 +9,7 @@
     integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles-partnership-modal.css" />
 </head>
 
 <body>
@@ -37,6 +38,49 @@
     Partner With Us
 </button>
   </nav>
+
+  <!-- Partnership Modal -->
+  <div id="partnershipModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeForm('partnership')">&times;</span>
+      <h2>Partner With Us</h2>
+      <form id="partnershipForm">
+        <label for="partner-name">Organization Name</label>
+        <input type="text" id="partner-name" name="name" placeholder="Your organization name.." required>
+
+        <label for="partner-email">Email</label>
+        <input type="email" id="partner-email" name="email" placeholder="Your email.." required>
+
+        <label for="partner-phone">Phone Number</label>
+        <input type="tel" id="partner-phone" name="phone" placeholder="Your phone number..">
+
+        <label for="partner-type">Type of Organization</label>
+        <select id="partner-type" name="type" required>
+          <option value="">Select organization type</option>
+          <option value="ngo">NGO</option>
+          <option value="school">School</option>
+          <option value="business">Business</option>
+          <option value="government">Government Agency</option>
+          <option value="other">Other</option>
+        </select>
+
+        <label for="partner-interest">Areas of Interest</label>
+        <select id="partner-interest" name="interest" required>
+          <option value="">Select area of interest</option>
+          <option value="youth">Youth Development</option>
+          <option value="sustainability">Sustainability</option>
+          <option value="education">Education</option>
+          <option value="community">Community Development</option>
+          <option value="other">Other</option>
+        </select>
+
+        <label for="partner-message">Message</label>
+        <textarea id="partner-message" name="message" placeholder="Tell us about your partnership interests.." required></textarea>
+
+        <button type="submit" class="submit-partnership">Submit Partnership Request</button>
+      </form>
+    </div>
+  </div>
 
   <!-- Donation Modal -->
   <div id="donationModal" class="modal">
@@ -323,7 +367,10 @@
           <p>Donors</p>
         </div>
       </div>
-      <button class="make-donation goal-donation-btn" id="goalDonateBtn">Partner With Us</button>
+      <button class="nav-button" id="goalPartnerBtn">
+        <i class="fas fa-handshake"></i>
+        Partner With Us
+      </button>
     </div>
   </section>
 
@@ -459,51 +506,41 @@
 
   <script src="./script.js"></script>
   <script>
-    // Get modal elements
-    const modal = document.getElementById('donationModal');
-    const navDonateBtn = document.querySelector('.nav-button');
-    const goalDonateBtn = document.querySelector('.goal-donation-btn');
-    const closeBtn = document.querySelector('.close');
-    const form = document.getElementById('donationForm');
+    // Partnership modal open for both Partner With Us buttons
+    document.getElementById('partnerUsNavBtn').onclick = function(e) {
+      e.preventDefault();
+      document.getElementById('partnershipModal').style.display = 'block';
+    }
 
-    // Open modal when either donation button is clicked
-    navDonateBtn.onclick = function() {
-      modal.style.display = 'block';
-    };
+    // Close partnership modal when close button is clicked
+    document.querySelector('#partnershipModal .close').onclick = function() {
+      document.getElementById('partnershipModal').style.display = 'none';
+    }
 
-    goalDonateBtn.onclick = function() {
-      modal.style.display = 'block';
-    };
+    // Close partnership modal when clicking outside the modal content
+    document.getElementById('partnershipModal').onclick = function(event) {
+      if (event.target === this) {
+        this.style.display = 'none';
+      }
+    }
 
-    // Open modal when any donation button is clicked
+    // Donation form handling
+    const donateBtns = document.querySelectorAll('.donate-btn');
     donateBtns.forEach(btn => {
       btn.onclick = function() {
-        modal.style.display = 'block';
+        document.getElementById('donationModal').style.display = 'block';
       }
     });
 
-    // Close modal when close button is clicked
-    closeBtn.onclick = function() {
-      modal.style.display = 'none';
+    document.querySelector('#donationModal .close').onclick = function() {
+      document.getElementById('donationModal').style.display = 'none';
     }
 
-    // Close modal when clicking outside
-    window.onclick = function(event) {
-      if (event.target == modal) {
-        modal.style.display = 'none';
+    document.getElementById('donationModal').onclick = function(event) {
+      if (event.target === this) {
+        this.style.display = 'none';
       }
     }
-
-    // Handle form submission
-    form.onsubmit = function(e) {
-      e.preventDefault();
-      const formData = new FormData(form);
-      console.log('Donation submitted:', Object.fromEntries(formData));
-      // Here you would typically send the data to your server
-      modal.style.display = 'none';
-      form.reset();
-      alert('Thank you for your donation!');
-    };
   </script>
   </body>
 </html>

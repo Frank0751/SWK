@@ -2,8 +2,9 @@
 // Form modal handling
 const forms = {
     volunteer: document.getElementById('volunteer-form'),
-    donation: document.getElementById('donation-form'),
-    partnership: document.getElementById('partnership-form')
+    donation: document.getElementById('donationForm'),
+    partnership: document.getElementById('partnershipForm'),
+    mentor: document.getElementById('mentor-form')
 };
 
 // Initialize form triggers
@@ -48,7 +49,8 @@ partnerButtons.forEach(button => {
 // Add click handlers for all other buttons
 const formButtons = {
     volunteer: document.querySelectorAll('.cta-btn[href="#volunteer"], .card-btn[href="#volunteer"], [href="#volunteer"]'),
-    donation: document.querySelectorAll('.cta-btn[href="#donate"], .card-btn[href="#donate"], [href="#donate"]')
+    donation: document.querySelectorAll('.cta-btn[href="#donate"], .card-btn[href="#donate"], [href="#donate"]'),
+    mentor: document.querySelectorAll('.cta-btn[href="#mentor"], .card-btn[href="#mentor"], [href="#mentor"]')
 };
 
 formButtons.volunteer.forEach(button => {
@@ -62,6 +64,13 @@ formButtons.donation.forEach(button => {
     button.addEventListener('click', (e) => {
         e.preventDefault();
         openForm('donation');
+    });
+});
+
+formButtons.mentor.forEach(button => {
+    button.addEventListener('click', (e) => {
+        e.preventDefault();
+        openForm('mentor');
     });
 });
 
@@ -95,12 +104,6 @@ function closeForm(formType) {
     }
 }
 
-// Open form function
-function openForm(formType) {
-    forms[formType].style.display = 'flex';
-    document.body.style.overflow = 'hidden';
-}
-
 // Close forms when clicking outside
 forms.volunteer.addEventListener('click', (e) => {
     if (e.target === forms.volunteer) {
@@ -120,14 +123,18 @@ forms.partnership.addEventListener('click', (e) => {
     }
 });
 
-// Close form function
-function closeForm(formType) {
-    forms[formType].style.display = 'none';
-    document.body.style.overflow = 'auto';
-}
+forms.mentor.addEventListener('click', (e) => {
+    if (e.target === forms.mentor) {
+        closeForm('mentor');
+    }
+});
 
 // Form submission handling
 const formMessages = {
+    mentor: {
+        success: "Thanks for applying! We'll review your application and get back to you soon.",
+        error: "Please fill in all required fields."
+    },
     volunteer: {
         success: "Thanks for signing up! We'll reach out soon.",
         error: "Please fill in all required fields."
@@ -159,7 +166,7 @@ if (volunteerForm) {
 }
 
 // Donation Form
-const donationForm = document.getElementById('donation-form');
+const donationForm = document.getElementById('donationForm');
 if (donationForm) {
     // Handle amount selection
     const amountBtns = document.querySelectorAll('.amount-btn');
@@ -185,7 +192,7 @@ if (donationForm) {
 }
 
 // Partnership Form
-const partnershipForm = document.getElementById('partnership-form');
+const partnershipForm = document.getElementById('partnershipForm');
 if (partnershipForm) {
     partnershipForm.addEventListener('submit', (e) => {
         e.preventDefault();

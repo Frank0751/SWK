@@ -10,20 +10,29 @@
 </head>
 <body>
     <nav class="glass">
-        <a href="index.html" class="logo"><img src="./Images/SWK LOGO.png" alt="logo" /></a>
-        <div class="menu-toggle">
-            <i class="fas fa-bars"></i>
+    <a href="#" class="logo"><img src="./Images/SWK LOGO.png" alt="logo" /></a>
+    <div class="menu-toggle">
+      <i class="fas fa-bars"></i>
+    </div>
+    <div class="nav-links">
+      <a class="text-black" href="index.html">Home</a>
+      <div class="nav-item dropdown">
+        <a class="text-black dropdown-toggle" href="about.us.html" id="aboutLink">About <i class="fas fa-caret-down"></i></a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="who-we-are.html">Who We Are</a>
+          <a class="dropdown-item" href="meet-the-team.html">Meet The Team</a>
         </div>
-        <div class="nav-links">
-            <a class="text-black" href="index.html">Home</a>
-            <a class="text-black" href="about.html">About</a>
-            <a class="text-black" href="programs.html">Our Work</a>
-            <a class="text-black" href="resources.html">Resources</a>
-            <a class="text-black" href="get-involved.html">Get Involved</a>
-            <a class="text-black" href="contact.html">Contact</a>
-        </div>
-        <button class="nav-button" id="partnerUsNavBtn">Partner With Us</button>
-    </nav>
+      </div>
+      <a class="text-black" href="programs.html">Our Work</a>
+      <a class="text-black" href="resources.html">Resources</a>
+      <a class="text-black" href="get-involved.html">Get Involved</a>
+      <a class="text-black" href="contact.html">Contact</a>
+    </div>
+    <button class="nav-button" id="partnerUsNavBtn">
+      <i class="fas fa-handshake"></i>
+      Partner With Us
+    </button>
+  </nav>
 
     <main>
         <!-- Hero Section -->
@@ -56,7 +65,7 @@
                     <div class="help-card-content">
                         <h3>Become a Mentor</h3>
                         <p>Share your knowledge and guide the next generation of sustainability leaders.</p>
-                        <a href="#mentor" class="card-btn">Learn More</a>
+                        <a href="#mentor" class="card-btn" id="mentor-btn">Learn More</a>
                     </div>
                 </div>
                 <div class="help-card">
@@ -195,6 +204,57 @@
     </footer>
 
     <!-- Forms -->
+    <div id="mentor-form" class="modal-form">
+        <div class="form-container">
+            <button class="close-form" onclick="closeForm('mentor')">&times;</button>
+            <h2>Apply to be a Mentor</h2>
+            <form id="mentor-signup" class="swk-form">
+                <div class="form-group">
+                    <label for="mentor-name">Full Name</label>
+                    <input type="text" id="mentor-name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="mentor-email">Email Address</label>
+                    <input type="email" id="mentor-email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="mentor-phone">Phone Number</label>
+                    <input type="tel" id="mentor-phone" name="phone">
+                </div>
+                <div class="form-group">
+                    <label for="mentor-expertise">Areas of Expertise</label>
+                    <select id="mentor-expertise" name="expertise" required>
+                        <option value="">Select your area of expertise</option>
+                        <option value="environmental">Environmental Science</option>
+                        <option value="sustainability">Sustainability</option>
+                        <option value="education">Education</option>
+                        <option value="community">Community Development</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="mentor-experience">Relevant Experience</label>
+                    <textarea id="mentor-experience" name="experience" rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="mentor-availability">Availability</label>
+                    <select id="mentor-availability" name="availability" required>
+                        <option value="">Select your availability</option>
+                        <option value="weekly">Weekly</option>
+                        <option value="biweekly">Bi-weekly</option>
+                        <option value="monthly">Monthly</option>
+                        <option value="flexible">Flexible</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="mentor-message">Additional Message</label>
+                    <textarea id="mentor-message" name="message" rows="3" placeholder="Any additional information you'd like to share..."></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Submit Application</button>
+            </form>
+        </div>
+    </div>
+
     <div id="volunteer-form" class="modal-form">
         <div class="form-container">
             <h2>Become a Volunteer</h2>
@@ -244,10 +304,10 @@
         </div>
     </div>
 
-    <div id="donation-form" class="modal-form">
+    <div id="donationModal" class="modal modal-form">
         <div class="form-container">
             <h2>Make a Donation</h2>
-            <form id="donation-form" class="swk-form">
+            <form id="donationForm" class="swk-form">
                 <div class="form-group">
                     <label for="donor-name">Full Name</label>
                     <input type="text" id="donor-name" name="donor-name" required>
